@@ -1,0 +1,4 @@
+module CClay {
+    header "clay.h"
+    export *
+}

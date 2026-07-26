@@ -1,0 +1,12 @@
+{
+  "": {
+    "swift-dependencies": "/Users/dserrano/Dev/swift-clay-wrapper/.build/arm64-apple-macosx/debug/ClaySwiftTests.build/primary.swiftdeps"
+  },
+  "/Users/dserrano/Dev/swift-clay-wrapper/Tests/ClaySwiftTests/ClaySwiftTests.swift": {
+    "dependencies": "/Users/dserrano/Dev/swift-clay-wrapper/.build/arm64-apple-macosx/debug/ClaySwiftTests.build/ClaySwiftTests.d",
+    "object": "/Users/dserrano/Dev/swift-clay-wrapper/.build/arm64-apple-macosx/debug/ClaySwiftTests.build/ClaySwiftTests.swift.o",
+    "swiftmodule": "/Users/dserrano/Dev/swift-clay-wrapper/.build/arm64-apple-macosx/debug/ClaySwiftTests.build/ClaySwiftTests~partial.swiftmodule",
+    "swift-dependencies": "/Users/dserrano/Dev/swift-clay-wrapper/.build/arm64-apple-macosx/debug/ClaySwiftTests.build/ClaySwiftTests.swiftdeps",
+    "diagnostics": "/Users/dserrano/Dev/swift-clay-wrapper/.build/arm64-apple-macosx/debug/ClaySwiftTests.build/ClaySwiftTests.dia"
+  }
+}

@@ -1,0 +1,926 @@
+{
+  "builtTestProducts" : [
+    {
+      "binaryPath" : "/Users/dserrano/Dev/swift-clay-wrapper/.build/index-build/arm64-apple-macosx/debug/ClaySwiftPackageTests.xctest/Contents/MacOS/ClaySwiftPackageTests",
+      "packagePath" : "/Users/dserrano/Dev/swift-clay-wrapper",
+      "productName" : "ClaySwiftPackageTests"
+    }
+  ],
+  "copyCommands" : {
+
+  },
+  "explicitTargetDependencyImportCheckingMode" : {
+    "none" : {
+
+    }
+  },
+  "generatedSourceTargetSet" : [
+
+  ],
+  "pluginDescriptions" : [
+
+  ],
+  "swiftCommands" : {
+    "C.BasicUI-arm64-apple-macosx-debug.module" : {
+      "executable" : "/System/Volumes/Data/Users/dserrano/Library/Developer/Toolchains/swift-6.3.1-RELEASE.xctoolchain/usr/bin/swiftc",
+      "fileList" : "/Users/dserrano/Dev/swift-clay-wrapper/.build/index-build/arm64-apple-macosx/debug/BasicUI.build/sources",
+      "importPath" : "/Users/dserrano/Dev/swift-clay-wrapper/.build/index-build/arm64-apple-macosx/debug/Modules",
+      "inputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/dserrano/Dev/swift-clay-wrapper/Examples/BasicUI/main.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/dserrano/Dev/swift-clay-wrapper/.build/index-build/arm64-apple-macosx/debug/swift-version--2C237A61DF233747.txt"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/dserrano/Dev/swift-clay-wrapper/.build/index-build/arm64-apple-macosx/debug/Modules/ClaySwift.swiftmodule"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/dserrano/Dev/swift-clay-wrapper/.build/index-build/arm64-apple-macosx/debug/BasicUI.build/sources"
+        }
+      ],
+      "isLibrary" : false,
+      "moduleName" : "BasicUI",
+      "moduleOutputPath" : "/Users/dserrano/Dev/swift-clay-wrapper/.build/index-build/arm64-apple-macosx/debug/Modules/BasicUI.swiftmodule",
+      "objects" : [
+        "/Users/dserrano/Dev/swift-clay-wrapper/.build/index-build/arm64-apple-macosx/debug/BasicUI.build/main.swift.o"
+      ],
+      "otherArguments" : [
+        "-target",
+        "arm64-apple-macosx13.0",
+        "-incremental",
+        "-enable-batch-mode",
+        "-serialize-diagnostics",
+        "-Onone",
+        "-enable-testing",
+        "-j8",
+        "-DSWIFT_PACKAGE",
+        "-DDEBUG",
+        "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+        "-Xcc",
+        "-fmodule-map-file=/Users/dserrano/Dev/swift-clay-wrapper/Sources/CSDL3/include/module.modulemap",
+        "-Xcc",
+        "-I",
+        "-Xcc",
+        "/Users/dserrano/Dev/swift-clay-wrapper/Sources/CSDL3/include",
+        "-Xcc",
+        "-fmodule-map-file=/Users/dserrano/Dev/swift-clay-wrapper/Sources/CClay/include/module.modulemap",
+        "-Xcc",
+        "-I",
+        "-Xcc",
+        "/Users/dserrano/Dev/swift-clay-wrapper/Sources/CClay/include",
+        "-module-cache-path",
+        "/Users/dserrano/Dev/swift-clay-wrapper/.build/index-build/arm64-apple-macosx/debug/ModuleCache",
+        "-parseable-output",
+        "-Xfrontend",
+        "-entry-point-function-name",
+        "-Xfrontend",
+        "BasicUI_main",
+        "-parse-as-library",
+        "-swift-version",
+        "6",
+        "-Xfrontend",
+        "-experimental-lazy-typecheck",
+        "-Xfrontend",
+        "-experimental-skip-all-function-bodies",
+        "-Xfrontend",
+        "-experimental-allow-module-with-compiler-errors",
+        "-Xfrontend",
+        "-empty-abi-descriptor",
+        "-I",
+        "/System/Volumes/Data/Users/dserrano/Library/Developer/Toolchains/swift-6.3.1-RELEASE.xctoolchain/usr/lib/swift/macosx/testing",
+        "-L",
+        "/System/Volumes/Data/Users/dserrano/Library/Developer/Toolchains/swift-6.3.1-RELEASE.xctoolchain/usr/lib/swift/macosx/testing",
+        "-plugin-path",
+        "/System/Volumes/Data/Users/dserrano/Library/Developer/Toolchains/swift-6.3.1-RELEASE.xctoolchain/usr/lib/swift/host/plugins/testing",
+        "-sdk",
+        "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
+        "-g",
+        "-Xcc",
+        "-isysroot",
+        "-Xcc",
+        "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
+        "-Xcc",
+        "-fPIC",
+        "-Xcc",
+        "-g",
+        "-package-name",
+        "swift_clay_wrapper"
+      ],
+      "outputFileMapPath" : "/Users/dserrano/Dev/swift-clay-wrapper/.build/index-build/arm64-apple-macosx/debug/BasicUI.build/output-file-map.json",
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/dserrano/Dev/swift-clay-wrapper/.build/index-build/arm64-apple-macosx/debug/Modules/BasicUI.swiftmodule"
+        }
+      ],
+      "prepareForIndexing" : true,
+      "sources" : [
+        "/Users/dserrano/Dev/swift-clay-wrapper/Examples/BasicUI/main.swift"
+      ],
+      "tempsPath" : "/Users/dserrano/Dev/swift-clay-wrapper/.build/index-build/arm64-apple-macosx/debug/BasicUI.build",
+      "wholeModuleOptimization" : false
+    },
+    "C.ClaySwift-arm64-apple-macosx-debug.module" : {
+      "executable" : "/System/Volumes/Data/Users/dserrano/Library/Developer/Toolchains/swift-6.3.1-RELEASE.xctoolchain/usr/bin/swiftc",
+      "fileList" : "/Users/dserrano/Dev/swift-clay-wrapper/.build/index-build/arm64-apple-macosx/debug/ClaySwift.build/sources",
+      "importPath" : "/Users/dserrano/Dev/swift-clay-wrapper/.build/index-build/arm64-apple-macosx/debug/Modules",
+      "inputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/dserrano/Dev/swift-clay-wrapper/Sources/ClaySwift/ClayBuilder.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/dserrano/Dev/swift-clay-wrapper/Sources/ClaySwift/ClayContext.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/dserrano/Dev/swift-clay-wrapper/Sources/ClaySwift/ClayError.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/dserrano/Dev/swift-clay-wrapper/Sources/ClaySwift/ClayFontRegistry.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/dserrano/Dev/swift-clay-wrapper/Sources/ClaySwift/ClayImage.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/dserrano/Dev/swift-clay-wrapper/Sources/ClaySwift/ClayRenderCommand.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/dserrano/Dev/swift-clay-wrapper/Sources/ClaySwift/ClayTypes.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/dserrano/Dev/swift-clay-wrapper/Sources/ClaySwift/ClayWindow.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/dserrano/Dev/swift-clay-wrapper/.build/index-build/arm64-apple-macosx/debug/swift-version--2C237A61DF233747.txt"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/dserrano/Dev/swift-clay-wrapper/Sources/CClay/include/clay.h"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/dserrano/Dev/swift-clay-wrapper/Sources/CSDL3/include/shim.h"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/dserrano/Dev/swift-clay-wrapper/.build/index-build/arm64-apple-macosx/debug/ClaySwift.build/sources"
+        }
+      ],
+      "isLibrary" : true,
+      "moduleName" : "ClaySwift",
+      "moduleOutputPath" : "/Users/dserrano/Dev/swift-clay-wrapper/.build/index-build/arm64-apple-macosx/debug/Modules/ClaySwift.swiftmodule",
+      "objects" : [
+        "/Users/dserrano/Dev/swift-clay-wrapper/.build/index-build/arm64-apple-macosx/debug/ClaySwift.build/ClayBuilder.swift.o",
+        "/Users/dserrano/Dev/swift-clay-wrapper/.build/index-build/arm64-apple-macosx/debug/ClaySwift.build/ClayContext.swift.o",
+        "/Users/dserrano/Dev/swift-clay-wrapper/.build/index-build/arm64-apple-macosx/debug/ClaySwift.build/ClayError.swift.o",
+        "/Users/dserrano/Dev/swift-clay-wrapper/.build/index-build/arm64-apple-macosx/debug/ClaySwift.build/ClayFontRegistry.swift.o",
+        "/Users/dserrano/Dev/swift-clay-wrapper/.build/index-build/arm64-apple-macosx/debug/ClaySwift.build/ClayImage.swift.o",
+        "/Users/dserrano/Dev/swift-clay-wrapper/.build/index-build/arm64-apple-macosx/debug/ClaySwift.build/ClayRenderCommand.swift.o",
+        "/Users/dserrano/Dev/swift-clay-wrapper/.build/index-build/arm64-apple-macosx/debug/ClaySwift.build/ClayTypes.swift.o",
+        "/Users/dserrano/Dev/swift-clay-wrapper/.build/index-build/arm64-apple-macosx/debug/ClaySwift.build/ClayWindow.swift.o"
+      ],
+      "otherArguments" : [
+        "-target",
+        "arm64-apple-macosx13.0",
+        "-incremental",
+        "-enable-batch-mode",
+        "-serialize-diagnostics",
+        "-Onone",
+        "-enable-testing",
+        "-j8",
+        "-DSWIFT_PACKAGE",
+        "-DDEBUG",
+        "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+        "-Xcc",
+        "-fmodule-map-file=/Users/dserrano/Dev/swift-clay-wrapper/Sources/CClay/include/module.modulemap",
+        "-Xcc",
+        "-I",
+        "-Xcc",
+        "/Users/dserrano/Dev/swift-clay-wrapper/Sources/CClay/include",
+        "-Xcc",
+        "-fmodule-map-file=/Users/dserrano/Dev/swift-clay-wrapper/Sources/CSDL3/include/module.modulemap",
+        "-Xcc",
+        "-I",
+        "-Xcc",
+        "/Users/dserrano/Dev/swift-clay-wrapper/Sources/CSDL3/include",
+        "-module-cache-path",
+        "/Users/dserrano/Dev/swift-clay-wrapper/.build/index-build/arm64-apple-macosx/debug/ModuleCache",
+        "-parseable-output",
+        "-parse-as-library",
+        "-emit-objc-header",
+        "-emit-objc-header-path",
+        "/Users/dserrano/Dev/swift-clay-wrapper/.build/index-build/arm64-apple-macosx/debug/ClaySwift.build/include/ClaySwift-Swift.h",
+        "-swift-version",
+        "6",
+        "-I/usr/local/include",
+        "-I/opt/homebrew/include",
+        "-Xfrontend",
+        "-experimental-lazy-typecheck",
+        "-Xfrontend",
+        "-experimental-skip-all-function-bodies",
+        "-Xfrontend",
+        "-experimental-allow-module-with-compiler-errors",
+        "-Xfrontend",
+        "-empty-abi-descriptor",
+        "-I",
+        "/System/Volumes/Data/Users/dserrano/Library/Developer/Toolchains/swift-6.3.1-RELEASE.xctoolchain/usr/lib/swift/macosx/testing",
+        "-L",
+        "/System/Volumes/Data/Users/dserrano/Library/Developer/Toolchains/swift-6.3.1-RELEASE.xctoolchain/usr/lib/swift/macosx/testing",
+        "-plugin-path",
+        "/System/Volumes/Data/Users/dserrano/Library/Developer/Toolchains/swift-6.3.1-RELEASE.xctoolchain/usr/lib/swift/host/plugins/testing",
+        "-sdk",
+        "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
+        "-g",
+        "-Xcc",
+        "-isysroot",
+        "-Xcc",
+        "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
+        "-Xcc",
+        "-fPIC",
+        "-Xcc",
+        "-g",
+        "-package-name",
+        "swift_clay_wrapper"
+      ],
+      "outputFileMapPath" : "/Users/dserrano/Dev/swift-clay-wrapper/.build/index-build/arm64-apple-macosx/debug/ClaySwift.build/output-file-map.json",
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/dserrano/Dev/swift-clay-wrapper/.build/index-build/arm64-apple-macosx/debug/Modules/ClaySwift.swiftmodule"
+        }
+      ],
+      "prepareForIndexing" : true,
+      "sources" : [
+        "/Users/dserrano/Dev/swift-clay-wrapper/Sources/ClaySwift/ClayBuilder.swift",
+        "/Users/dserrano/Dev/swift-clay-wrapper/Sources/ClaySwift/ClayContext.swift",
+        "/Users/dserrano/Dev/swift-clay-wrapper/Sources/ClaySwift/ClayError.swift",
+        "/Users/dserrano/Dev/swift-clay-wrapper/Sources/ClaySwift/ClayFontRegistry.swift",
+        "/Users/dserrano/Dev/swift-clay-wrapper/Sources/ClaySwift/ClayImage.swift",
+        "/Users/dserrano/Dev/swift-clay-wrapper/Sources/ClaySwift/ClayRenderCommand.swift",
+        "/Users/dserrano/Dev/swift-clay-wrapper/Sources/ClaySwift/ClayTypes.swift",
+        "/Users/dserrano/Dev/swift-clay-wrapper/Sources/ClaySwift/ClayWindow.swift"
+      ],
+      "tempsPath" : "/Users/dserrano/Dev/swift-clay-wrapper/.build/index-build/arm64-apple-macosx/debug/ClaySwift.build",
+      "wholeModuleOptimization" : false
+    },
+    "C.ClaySwiftPackageTests-arm64-apple-macosx-debug.module" : {
+      "executable" : "/System/Volumes/Data/Users/dserrano/Library/Developer/Toolchains/swift-6.3.1-RELEASE.xctoolchain/usr/bin/swiftc",
+      "fileList" : "/Users/dserrano/Dev/swift-clay-wrapper/.build/index-build/arm64-apple-macosx/debug/ClaySwiftPackageTests.build/sources",
+      "importPath" : "/Users/dserrano/Dev/swift-clay-wrapper/.build/index-build/arm64-apple-macosx/debug/Modules",
+      "inputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/dserrano/Dev/swift-clay-wrapper/.build/index-build/arm64-apple-macosx/debug/ClaySwiftPackageTests.derived/runner.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/dserrano/Dev/swift-clay-wrapper/.build/index-build/arm64-apple-macosx/debug/swift-version--2C237A61DF233747.txt"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/dserrano/Dev/swift-clay-wrapper/.build/index-build/arm64-apple-macosx/debug/Modules/ClaySwiftTests.swiftmodule"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/dserrano/Dev/swift-clay-wrapper/.build/index-build/arm64-apple-macosx/debug/ClaySwiftPackageTests.build/sources"
+        }
+      ],
+      "isLibrary" : true,
+      "moduleName" : "ClaySwiftPackageTests",
+      "moduleOutputPath" : "/Users/dserrano/Dev/swift-clay-wrapper/.build/index-build/arm64-apple-macosx/debug/Modules/ClaySwiftPackageTests.swiftmodule",
+      "objects" : [
+        "/Users/dserrano/Dev/swift-clay-wrapper/.build/index-build/arm64-apple-macosx/debug/ClaySwiftPackageTests.build/runner.swift.o"
+      ],
+      "otherArguments" : [
+        "-target",
+        "arm64-apple-macosx13.0",
+        "-incremental",
+        "-enable-batch-mode",
+        "-serialize-diagnostics",
+        "-Onone",
+        "-enable-testing",
+        "-Xfrontend",
+        "-enable-cross-import-overlays",
+        "-j8",
+        "-DSWIFT_PACKAGE",
+        "-DDEBUG",
+        "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+        "-Xcc",
+        "-fmodule-map-file=/Users/dserrano/Dev/swift-clay-wrapper/Sources/CSDL3/include/module.modulemap",
+        "-Xcc",
+        "-I",
+        "-Xcc",
+        "/Users/dserrano/Dev/swift-clay-wrapper/Sources/CSDL3/include",
+        "-Xcc",
+        "-fmodule-map-file=/Users/dserrano/Dev/swift-clay-wrapper/Sources/CClay/include/module.modulemap",
+        "-Xcc",
+        "-I",
+        "-Xcc",
+        "/Users/dserrano/Dev/swift-clay-wrapper/Sources/CClay/include",
+        "-module-cache-path",
+        "/Users/dserrano/Dev/swift-clay-wrapper/.build/index-build/arm64-apple-macosx/debug/ModuleCache",
+        "-parseable-output",
+        "-parse-as-library",
+        "-emit-objc-header",
+        "-emit-objc-header-path",
+        "/Users/dserrano/Dev/swift-clay-wrapper/.build/index-build/arm64-apple-macosx/debug/ClaySwiftPackageTests.build/include/ClaySwiftPackageTests-Swift.h",
+        "-Xfrontend",
+        "-experimental-lazy-typecheck",
+        "-Xfrontend",
+        "-experimental-skip-all-function-bodies",
+        "-Xfrontend",
+        "-experimental-allow-module-with-compiler-errors",
+        "-Xfrontend",
+        "-empty-abi-descriptor",
+        "-I",
+        "/System/Volumes/Data/Users/dserrano/Library/Developer/Toolchains/swift-6.3.1-RELEASE.xctoolchain/usr/lib/swift/macosx/testing",
+        "-L",
+        "/System/Volumes/Data/Users/dserrano/Library/Developer/Toolchains/swift-6.3.1-RELEASE.xctoolchain/usr/lib/swift/macosx/testing",
+        "-plugin-path",
+        "/System/Volumes/Data/Users/dserrano/Library/Developer/Toolchains/swift-6.3.1-RELEASE.xctoolchain/usr/lib/swift/host/plugins/testing",
+        "-sdk",
+        "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
+        "-g",
+        "-Xcc",
+        "-isysroot",
+        "-Xcc",
+        "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
+        "-Xcc",
+        "-fPIC",
+        "-Xcc",
+        "-g",
+        "-package-name",
+        "swift_clay_wrapper"
+      ],
+      "outputFileMapPath" : "/Users/dserrano/Dev/swift-clay-wrapper/.build/index-build/arm64-apple-macosx/debug/ClaySwiftPackageTests.build/output-file-map.json",
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/dserrano/Dev/swift-clay-wrapper/.build/index-build/arm64-apple-macosx/debug/Modules/ClaySwiftPackageTests.swiftmodule"
+        }
+      ],
+      "prepareForIndexing" : true,
+      "sources" : [
+        "/Users/dserrano/Dev/swift-clay-wrapper/.build/index-build/arm64-apple-macosx/debug/ClaySwiftPackageTests.derived/runner.swift"
+      ],
+      "tempsPath" : "/Users/dserrano/Dev/swift-clay-wrapper/.build/index-build/arm64-apple-macosx/debug/ClaySwiftPackageTests.build",
+      "wholeModuleOptimization" : false
+    },
+    "C.ClaySwiftTests-arm64-apple-macosx-debug.module" : {
+      "executable" : "/System/Volumes/Data/Users/dserrano/Library/Developer/Toolchains/swift-6.3.1-RELEASE.xctoolchain/usr/bin/swiftc",
+      "fileList" : "/Users/dserrano/Dev/swift-clay-wrapper/.build/index-build/arm64-apple-macosx/debug/ClaySwiftTests.build/sources",
+      "importPath" : "/Users/dserrano/Dev/swift-clay-wrapper/.build/index-build/arm64-apple-macosx/debug/Modules",
+      "inputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/dserrano/Dev/swift-clay-wrapper/Tests/ClaySwiftTests/ClaySwiftTests.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/dserrano/Dev/swift-clay-wrapper/.build/index-build/arm64-apple-macosx/debug/swift-version--2C237A61DF233747.txt"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/dserrano/Dev/swift-clay-wrapper/.build/index-build/arm64-apple-macosx/debug/Modules/ClaySwift.swiftmodule"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/dserrano/Dev/swift-clay-wrapper/.build/index-build/arm64-apple-macosx/debug/ClaySwiftTests.build/sources"
+        }
+      ],
+      "isLibrary" : true,
+      "moduleName" : "ClaySwiftTests",
+      "moduleOutputPath" : "/Users/dserrano/Dev/swift-clay-wrapper/.build/index-build/arm64-apple-macosx/debug/Modules/ClaySwiftTests.swiftmodule",
+      "objects" : [
+        "/Users/dserrano/Dev/swift-clay-wrapper/.build/index-build/arm64-apple-macosx/debug/ClaySwiftTests.build/ClaySwiftTests.swift.o"
+      ],
+      "otherArguments" : [
+        "-target",
+        "arm64-apple-macosx13.0",
+        "-incremental",
+        "-enable-batch-mode",
+        "-serialize-diagnostics",
+        "-Onone",
+        "-enable-testing",
+        "-Xfrontend",
+        "-enable-cross-import-overlays",
+        "-j8",
+        "-DSWIFT_PACKAGE",
+        "-DDEBUG",
+        "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+        "-Xcc",
+        "-fmodule-map-file=/Users/dserrano/Dev/swift-clay-wrapper/Sources/CSDL3/include/module.modulemap",
+        "-Xcc",
+        "-I",
+        "-Xcc",
+        "/Users/dserrano/Dev/swift-clay-wrapper/Sources/CSDL3/include",
+        "-Xcc",
+        "-fmodule-map-file=/Users/dserrano/Dev/swift-clay-wrapper/Sources/CClay/include/module.modulemap",
+        "-Xcc",
+        "-I",
+        "-Xcc",
+        "/Users/dserrano/Dev/swift-clay-wrapper/Sources/CClay/include",
+        "-module-cache-path",
+        "/Users/dserrano/Dev/swift-clay-wrapper/.build/index-build/arm64-apple-macosx/debug/ModuleCache",
+        "-parseable-output",
+        "-parse-as-library",
+        "-swift-version",
+        "6",
+        "-Xfrontend",
+        "-experimental-lazy-typecheck",
+        "-Xfrontend",
+        "-experimental-skip-all-function-bodies",
+        "-Xfrontend",
+        "-experimental-allow-module-with-compiler-errors",
+        "-Xfrontend",
+        "-empty-abi-descriptor",
+        "-I",
+        "/System/Volumes/Data/Users/dserrano/Library/Developer/Toolchains/swift-6.3.1-RELEASE.xctoolchain/usr/lib/swift/macosx/testing",
+        "-L",
+        "/System/Volumes/Data/Users/dserrano/Library/Developer/Toolchains/swift-6.3.1-RELEASE.xctoolchain/usr/lib/swift/macosx/testing",
+        "-plugin-path",
+        "/System/Volumes/Data/Users/dserrano/Library/Developer/Toolchains/swift-6.3.1-RELEASE.xctoolchain/usr/lib/swift/host/plugins/testing",
+        "-sdk",
+        "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
+        "-g",
+        "-Xcc",
+        "-isysroot",
+        "-Xcc",
+        "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
+        "-Xcc",
+        "-fPIC",
+        "-Xcc",
+        "-g",
+        "-package-name",
+        "swift_clay_wrapper"
+      ],
+      "outputFileMapPath" : "/Users/dserrano/Dev/swift-clay-wrapper/.build/index-build/arm64-apple-macosx/debug/ClaySwiftTests.build/output-file-map.json",
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/dserrano/Dev/swift-clay-wrapper/.build/index-build/arm64-apple-macosx/debug/Modules/ClaySwiftTests.swiftmodule"
+        }
+      ],
+      "prepareForIndexing" : true,
+      "sources" : [
+        "/Users/dserrano/Dev/swift-clay-wrapper/Tests/ClaySwiftTests/ClaySwiftTests.swift"
+      ],
+      "tempsPath" : "/Users/dserrano/Dev/swift-clay-wrapper/.build/index-build/arm64-apple-macosx/debug/ClaySwiftTests.build",
+      "wholeModuleOptimization" : false
+    }
+  },
+  "swiftFrontendCommands" : {
+
+  },
+  "swiftTargetScanArgs" : {
+    "BasicUI" : [
+      "/System/Volumes/Data/Users/dserrano/Library/Developer/Toolchains/swift-6.3.1-RELEASE.xctoolchain/usr/bin/swiftc",
+      "-module-name",
+      "BasicUI",
+      "-package-name",
+      "swift_clay_wrapper",
+      "-c",
+      "/Users/dserrano/Dev/swift-clay-wrapper/Examples/BasicUI/main.swift",
+      "-I",
+      "/Users/dserrano/Dev/swift-clay-wrapper/.build/index-build/arm64-apple-macosx/debug/Modules",
+      "-target",
+      "arm64-apple-macosx13.0",
+      "-incremental",
+      "-enable-batch-mode",
+      "-serialize-diagnostics",
+      "-Onone",
+      "-enable-testing",
+      "-j8",
+      "-DSWIFT_PACKAGE",
+      "-DDEBUG",
+      "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+      "-Xcc",
+      "-fmodule-map-file=/Users/dserrano/Dev/swift-clay-wrapper/Sources/CSDL3/include/module.modulemap",
+      "-Xcc",
+      "-I",
+      "-Xcc",
+      "/Users/dserrano/Dev/swift-clay-wrapper/Sources/CSDL3/include",
+      "-Xcc",
+      "-fmodule-map-file=/Users/dserrano/Dev/swift-clay-wrapper/Sources/CClay/include/module.modulemap",
+      "-Xcc",
+      "-I",
+      "-Xcc",
+      "/Users/dserrano/Dev/swift-clay-wrapper/Sources/CClay/include",
+      "-module-cache-path",
+      "/Users/dserrano/Dev/swift-clay-wrapper/.build/index-build/arm64-apple-macosx/debug/ModuleCache",
+      "-parseable-output",
+      "-Xfrontend",
+      "-entry-point-function-name",
+      "-Xfrontend",
+      "BasicUI_main",
+      "-parse-as-library",
+      "-swift-version",
+      "6",
+      "-Xfrontend",
+      "-experimental-lazy-typecheck",
+      "-Xfrontend",
+      "-experimental-skip-all-function-bodies",
+      "-Xfrontend",
+      "-experimental-allow-module-with-compiler-errors",
+      "-Xfrontend",
+      "-empty-abi-descriptor",
+      "-I",
+      "/System/Volumes/Data/Users/dserrano/Library/Developer/Toolchains/swift-6.3.1-RELEASE.xctoolchain/usr/lib/swift/macosx/testing",
+      "-L",
+      "/System/Volumes/Data/Users/dserrano/Library/Developer/Toolchains/swift-6.3.1-RELEASE.xctoolchain/usr/lib/swift/macosx/testing",
+      "-plugin-path",
+      "/System/Volumes/Data/Users/dserrano/Library/Developer/Toolchains/swift-6.3.1-RELEASE.xctoolchain/usr/lib/swift/host/plugins/testing",
+      "-sdk",
+      "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
+      "-g",
+      "-Xcc",
+      "-isysroot",
+      "-Xcc",
+      "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
+      "-Xcc",
+      "-fPIC",
+      "-Xcc",
+      "-g",
+      "-package-name",
+      "swift_clay_wrapper",
+      "-driver-use-frontend-path",
+      "/System/Volumes/Data/Users/dserrano/Library/Developer/Toolchains/swift-6.3.1-RELEASE.xctoolchain/usr/bin/swiftc"
+    ],
+    "ClaySwift" : [
+      "/System/Volumes/Data/Users/dserrano/Library/Developer/Toolchains/swift-6.3.1-RELEASE.xctoolchain/usr/bin/swiftc",
+      "-module-name",
+      "ClaySwift",
+      "-package-name",
+      "swift_clay_wrapper",
+      "-c",
+      "/Users/dserrano/Dev/swift-clay-wrapper/Sources/ClaySwift/ClayBuilder.swift",
+      "/Users/dserrano/Dev/swift-clay-wrapper/Sources/ClaySwift/ClayContext.swift",
+      "/Users/dserrano/Dev/swift-clay-wrapper/Sources/ClaySwift/ClayError.swift",
+      "/Users/dserrano/Dev/swift-clay-wrapper/Sources/ClaySwift/ClayFontRegistry.swift",
+      "/Users/dserrano/Dev/swift-clay-wrapper/Sources/ClaySwift/ClayImage.swift",
+      "/Users/dserrano/Dev/swift-clay-wrapper/Sources/ClaySwift/ClayRenderCommand.swift",
+      "/Users/dserrano/Dev/swift-clay-wrapper/Sources/ClaySwift/ClayTypes.swift",
+      "/Users/dserrano/Dev/swift-clay-wrapper/Sources/ClaySwift/ClayWindow.swift",
+      "-I",
+      "/Users/dserrano/Dev/swift-clay-wrapper/.build/index-build/arm64-apple-macosx/debug/Modules",
+      "-target",
+      "arm64-apple-macosx13.0",
+      "-incremental",
+      "-enable-batch-mode",
+      "-serialize-diagnostics",
+      "-Onone",
+      "-enable-testing",
+      "-j8",
+      "-DSWIFT_PACKAGE",
+      "-DDEBUG",
+      "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+      "-Xcc",
+      "-fmodule-map-file=/Users/dserrano/Dev/swift-clay-wrapper/Sources/CClay/include/module.modulemap",
+      "-Xcc",
+      "-I",
+      "-Xcc",
+      "/Users/dserrano/Dev/swift-clay-wrapper/Sources/CClay/include",
+      "-Xcc",
+      "-fmodule-map-file=/Users/dserrano/Dev/swift-clay-wrapper/Sources/CSDL3/include/module.modulemap",
+      "-Xcc",
+      "-I",
+      "-Xcc",
+      "/Users/dserrano/Dev/swift-clay-wrapper/Sources/CSDL3/include",
+      "-module-cache-path",
+      "/Users/dserrano/Dev/swift-clay-wrapper/.build/index-build/arm64-apple-macosx/debug/ModuleCache",
+      "-parseable-output",
+      "-parse-as-library",
+      "-emit-objc-header",
+      "-emit-objc-header-path",
+      "/Users/dserrano/Dev/swift-clay-wrapper/.build/index-build/arm64-apple-macosx/debug/ClaySwift.build/include/ClaySwift-Swift.h",
+      "-swift-version",
+      "6",
+      "-I/usr/local/include",
+      "-I/opt/homebrew/include",
+      "-Xfrontend",
+      "-experimental-lazy-typecheck",
+      "-Xfrontend",
+      "-experimental-skip-all-function-bodies",
+      "-Xfrontend",
+      "-experimental-allow-module-with-compiler-errors",
+      "-Xfrontend",
+      "-empty-abi-descriptor",
+      "-I",
+      "/System/Volumes/Data/Users/dserrano/Library/Developer/Toolchains/swift-6.3.1-RELEASE.xctoolchain/usr/lib/swift/macosx/testing",
+      "-L",
+      "/System/Volumes/Data/Users/dserrano/Library/Developer/Toolchains/swift-6.3.1-RELEASE.xctoolchain/usr/lib/swift/macosx/testing",
+      "-plugin-path",
+      "/System/Volumes/Data/Users/dserrano/Library/Developer/Toolchains/swift-6.3.1-RELEASE.xctoolchain/usr/lib/swift/host/plugins/testing",
+      "-sdk",
+      "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
+      "-g",
+      "-Xcc",
+      "-isysroot",
+      "-Xcc",
+      "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
+      "-Xcc",
+      "-fPIC",
+      "-Xcc",
+      "-g",
+      "-package-name",
+      "swift_clay_wrapper",
+      "-driver-use-frontend-path",
+      "/System/Volumes/Data/Users/dserrano/Library/Developer/Toolchains/swift-6.3.1-RELEASE.xctoolchain/usr/bin/swiftc"
+    ],
+    "ClaySwiftPackageTests" : [
+      "/System/Volumes/Data/Users/dserrano/Library/Developer/Toolchains/swift-6.3.1-RELEASE.xctoolchain/usr/bin/swiftc",
+      "-module-name",
+      "ClaySwiftPackageTests",
+      "-package-name",
+      "swift_clay_wrapper",
+      "-c",
+      "/Users/dserrano/Dev/swift-clay-wrapper/.build/index-build/arm64-apple-macosx/debug/ClaySwiftPackageTests.derived/runner.swift",
+      "-I",
+      "/Users/dserrano/Dev/swift-clay-wrapper/.build/index-build/arm64-apple-macosx/debug/Modules",
+      "-target",
+      "arm64-apple-macosx13.0",
+      "-incremental",
+      "-enable-batch-mode",
+      "-serialize-diagnostics",
+      "-Onone",
+      "-enable-testing",
+      "-Xfrontend",
+      "-enable-cross-import-overlays",
+      "-j8",
+      "-DSWIFT_PACKAGE",
+      "-DDEBUG",
+      "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+      "-Xcc",
+      "-fmodule-map-file=/Users/dserrano/Dev/swift-clay-wrapper/Sources/CSDL3/include/module.modulemap",
+      "-Xcc",
+      "-I",
+      "-Xcc",
+      "/Users/dserrano/Dev/swift-clay-wrapper/Sources/CSDL3/include",
+      "-Xcc",
+      "-fmodule-map-file=/Users/dserrano/Dev/swift-clay-wrapper/Sources/CClay/include/module.modulemap",
+      "-Xcc",
+      "-I",
+      "-Xcc",
+      "/Users/dserrano/Dev/swift-clay-wrapper/Sources/CClay/include",
+      "-module-cache-path",
+      "/Users/dserrano/Dev/swift-clay-wrapper/.build/index-build/arm64-apple-macosx/debug/ModuleCache",
+      "-parseable-output",
+      "-parse-as-library",
+      "-emit-objc-header",
+      "-emit-objc-header-path",
+      "/Users/dserrano/Dev/swift-clay-wrapper/.build/index-build/arm64-apple-macosx/debug/ClaySwiftPackageTests.build/include/ClaySwiftPackageTests-Swift.h",
+      "-Xfrontend",
+      "-experimental-lazy-typecheck",
+      "-Xfrontend",
+      "-experimental-skip-all-function-bodies",
+      "-Xfrontend",
+      "-experimental-allow-module-with-compiler-errors",
+      "-Xfrontend",
+      "-empty-abi-descriptor",
+      "-I",
+      "/System/Volumes/Data/Users/dserrano/Library/Developer/Toolchains/swift-6.3.1-RELEASE.xctoolchain/usr/lib/swift/macosx/testing",
+      "-L",
+      "/System/Volumes/Data/Users/dserrano/Library/Developer/Toolchains/swift-6.3.1-RELEASE.xctoolchain/usr/lib/swift/macosx/testing",
+      "-plugin-path",
+      "/System/Volumes/Data/Users/dserrano/Library/Developer/Toolchains/swift-6.3.1-RELEASE.xctoolchain/usr/lib/swift/host/plugins/testing",
+      "-sdk",
+      "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
+      "-g",
+      "-Xcc",
+      "-isysroot",
+      "-Xcc",
+      "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
+      "-Xcc",
+      "-fPIC",
+      "-Xcc",
+      "-g",
+      "-package-name",
+      "swift_clay_wrapper",
+      "-driver-use-frontend-path",
+      "/System/Volumes/Data/Users/dserrano/Library/Developer/Toolchains/swift-6.3.1-RELEASE.xctoolchain/usr/bin/swiftc"
+    ],
+    "ClaySwiftTests" : [
+      "/System/Volumes/Data/Users/dserrano/Library/Developer/Toolchains/swift-6.3.1-RELEASE.xctoolchain/usr/bin/swiftc",
+      "-module-name",
+      "ClaySwiftTests",
+      "-package-name",
+      "swift_clay_wrapper",
+      "-c",
+      "/Users/dserrano/Dev/swift-clay-wrapper/Tests/ClaySwiftTests/ClaySwiftTests.swift",
+      "-I",
+      "/Users/dserrano/Dev/swift-clay-wrapper/.build/index-build/arm64-apple-macosx/debug/Modules",
+      "-target",
+      "arm64-apple-macosx13.0",
+      "-incremental",
+      "-enable-batch-mode",
+      "-serialize-diagnostics",
+      "-Onone",
+      "-enable-testing",
+      "-Xfrontend",
+      "-enable-cross-import-overlays",
+      "-j8",
+      "-DSWIFT_PACKAGE",
+      "-DDEBUG",
+      "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+      "-Xcc",
+      "-fmodule-map-file=/Users/dserrano/Dev/swift-clay-wrapper/Sources/CSDL3/include/module.modulemap",
+      "-Xcc",
+      "-I",
+      "-Xcc",
+      "/Users/dserrano/Dev/swift-clay-wrapper/Sources/CSDL3/include",
+      "-Xcc",
+      "-fmodule-map-file=/Users/dserrano/Dev/swift-clay-wrapper/Sources/CClay/include/module.modulemap",
+      "-Xcc",
+      "-I",
+      "-Xcc",
+      "/Users/dserrano/Dev/swift-clay-wrapper/Sources/CClay/include",
+      "-module-cache-path",
+      "/Users/dserrano/Dev/swift-clay-wrapper/.build/index-build/arm64-apple-macosx/debug/ModuleCache",
+      "-parseable-output",
+      "-parse-as-library",
+      "-swift-version",
+      "6",
+      "-Xfrontend",
+      "-experimental-lazy-typecheck",
+      "-Xfrontend",
+      "-experimental-skip-all-function-bodies",
+      "-Xfrontend",
+      "-experimental-allow-module-with-compiler-errors",
+      "-Xfrontend",
+      "-empty-abi-descriptor",
+      "-I",
+      "/System/Volumes/Data/Users/dserrano/Library/Developer/Toolchains/swift-6.3.1-RELEASE.xctoolchain/usr/lib/swift/macosx/testing",
+      "-L",
+      "/System/Volumes/Data/Users/dserrano/Library/Developer/Toolchains/swift-6.3.1-RELEASE.xctoolchain/usr/lib/swift/macosx/testing",
+      "-plugin-path",
+      "/System/Volumes/Data/Users/dserrano/Library/Developer/Toolchains/swift-6.3.1-RELEASE.xctoolchain/usr/lib/swift/host/plugins/testing",
+      "-sdk",
+      "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
+      "-g",
+      "-Xcc",
+      "-isysroot",
+      "-Xcc",
+      "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
+      "-Xcc",
+      "-fPIC",
+      "-Xcc",
+      "-g",
+      "-package-name",
+      "swift_clay_wrapper",
+      "-driver-use-frontend-path",
+      "/System/Volumes/Data/Users/dserrano/Library/Developer/Toolchains/swift-6.3.1-RELEASE.xctoolchain/usr/bin/swiftc"
+    ]
+  },
+  "targetDependencyMap" : {
+    "BasicUI" : [
+      "ClaySwift",
+      "CSDL3",
+      "CClay"
+    ],
+    "CClay" : [
+
+    ],
+    "CSDL3" : [
+      "CClay"
+    ],
+    "ClaySwift" : [
+      "CSDL3",
+      "CClay"
+    ],
+    "ClaySwiftPackageTests" : [
+      "ClaySwiftTests",
+      "ClaySwift",
+      "CSDL3",
+      "CClay"
+    ],
+    "ClaySwiftTests" : [
+      "ClaySwift",
+      "CSDL3",
+      "CClay"
+    ]
+  },
+  "testDiscoveryCommands" : {
+
+  },
+  "testEntryPointCommands" : {
+
+  },
+  "traitConfiguration" : {
+    "default" : {
+
+    }
+  },
+  "writeCommands" : {
+    "/Users/dserrano/Dev/swift-clay-wrapper/.build/index-build/arm64-apple-macosx/debug/BasicUI.build/sources" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<sources-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/dserrano/Dev/swift-clay-wrapper/Examples/BasicUI/main.swift"
+        }
+      ],
+      "outputFilePath" : "/Users/dserrano/Dev/swift-clay-wrapper/.build/index-build/arm64-apple-macosx/debug/BasicUI.build/sources"
+    },
+    "/Users/dserrano/Dev/swift-clay-wrapper/.build/index-build/arm64-apple-macosx/debug/ClaySwift.build/sources" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<sources-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/dserrano/Dev/swift-clay-wrapper/Sources/ClaySwift/ClayBuilder.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/dserrano/Dev/swift-clay-wrapper/Sources/ClaySwift/ClayContext.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/dserrano/Dev/swift-clay-wrapper/Sources/ClaySwift/ClayError.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/dserrano/Dev/swift-clay-wrapper/Sources/ClaySwift/ClayFontRegistry.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/dserrano/Dev/swift-clay-wrapper/Sources/ClaySwift/ClayImage.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/dserrano/Dev/swift-clay-wrapper/Sources/ClaySwift/ClayRenderCommand.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/dserrano/Dev/swift-clay-wrapper/Sources/ClaySwift/ClayTypes.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/dserrano/Dev/swift-clay-wrapper/Sources/ClaySwift/ClayWindow.swift"
+        }
+      ],
+      "outputFilePath" : "/Users/dserrano/Dev/swift-clay-wrapper/.build/index-build/arm64-apple-macosx/debug/ClaySwift.build/sources"
+    },
+    "/Users/dserrano/Dev/swift-clay-wrapper/.build/index-build/arm64-apple-macosx/debug/ClaySwiftPackageTests.build/sources" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<sources-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/dserrano/Dev/swift-clay-wrapper/.build/index-build/arm64-apple-macosx/debug/ClaySwiftPackageTests.derived/runner.swift"
+        }
+      ],
+      "outputFilePath" : "/Users/dserrano/Dev/swift-clay-wrapper/.build/index-build/arm64-apple-macosx/debug/ClaySwiftPackageTests.build/sources"
+    },
+    "/Users/dserrano/Dev/swift-clay-wrapper/.build/index-build/arm64-apple-macosx/debug/ClaySwiftTests.build/sources" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<sources-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/dserrano/Dev/swift-clay-wrapper/Tests/ClaySwiftTests/ClaySwiftTests.swift"
+        }
+      ],
+      "outputFilePath" : "/Users/dserrano/Dev/swift-clay-wrapper/.build/index-build/arm64-apple-macosx/debug/ClaySwiftTests.build/sources"
+    },
+    "/Users/dserrano/Dev/swift-clay-wrapper/.build/index-build/arm64-apple-macosx/debug/swift-version--2C237A61DF233747.txt" : {
+      "alwaysOutOfDate" : true,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<swift-get-version>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/System/Volumes/Data/Users/dserrano/Library/Developer/Toolchains/swift-6.3.1-RELEASE.xctoolchain/usr/bin/swiftc"
+        }
+      ],
+      "outputFilePath" : "/Users/dserrano/Dev/swift-clay-wrapper/.build/index-build/arm64-apple-macosx/debug/swift-version--2C237A61DF233747.txt"
+    }
+  }
+}

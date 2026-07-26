@@ -1,0 +1,12 @@
+{
+  "": {
+    "swift-dependencies": "/Users/dserrano/Dev/swift-clay-wrapper/.build/index-build/arm64-apple-macosx/debug/BasicUI.build/primary.swiftdeps"
+  },
+  "/Users/dserrano/Dev/swift-clay-wrapper/Examples/BasicUI/main.swift": {
+    "dependencies": "/Users/dserrano/Dev/swift-clay-wrapper/.build/index-build/arm64-apple-macosx/debug/BasicUI.build/main.d",
+    "object": "/Users/dserrano/Dev/swift-clay-wrapper/.build/index-build/arm64-apple-macosx/debug/BasicUI.build/main.swift.o",
+    "swiftmodule": "/Users/dserrano/Dev/swift-clay-wrapper/.build/index-build/arm64-apple-macosx/debug/BasicUI.build/main~partial.swiftmodule",
+    "swift-dependencies": "/Users/dserrano/Dev/swift-clay-wrapper/.build/index-build/arm64-apple-macosx/debug/BasicUI.build/main.swiftdeps",
+    "diagnostics": "/Users/dserrano/Dev/swift-clay-wrapper/.build/index-build/arm64-apple-macosx/debug/BasicUI.build/main.dia"
+  }
+}

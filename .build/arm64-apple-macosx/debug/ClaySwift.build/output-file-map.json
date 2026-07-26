@@ -1,0 +1,61 @@
+{
+  "": {
+    "swift-dependencies": "/Users/dserrano/Dev/swift-clay-wrapper/.build/arm64-apple-macosx/debug/ClaySwift.build/primary.swiftdeps"
+  },
+  "/Users/dserrano/Dev/swift-clay-wrapper/Sources/ClaySwift/ClayBuilder.swift": {
+    "dependencies": "/Users/dserrano/Dev/swift-clay-wrapper/.build/arm64-apple-macosx/debug/ClaySwift.build/ClayBuilder.d",
+    "object": "/Users/dserrano/Dev/swift-clay-wrapper/.build/arm64-apple-macosx/debug/ClaySwift.build/ClayBuilder.swift.o",
+    "swiftmodule": "/Users/dserrano/Dev/swift-clay-wrapper/.build/arm64-apple-macosx/debug/ClaySwift.build/ClayBuilder~partial.swiftmodule",
+    "swift-dependencies": "/Users/dserrano/Dev/swift-clay-wrapper/.build/arm64-apple-macosx/debug/ClaySwift.build/ClayBuilder.swiftdeps",
+    "diagnostics": "/Users/dserrano/Dev/swift-clay-wrapper/.build/arm64-apple-macosx/debug/ClaySwift.build/ClayBuilder.dia"
+  },
+  "/Users/dserrano/Dev/swift-clay-wrapper/Sources/ClaySwift/ClayContext.swift": {
+    "dependencies": "/Users/dserrano/Dev/swift-clay-wrapper/.build/arm64-apple-macosx/debug/ClaySwift.build/ClayContext.d",
+    "object": "/Users/dserrano/Dev/swift-clay-wrapper/.build/arm64-apple-macosx/debug/ClaySwift.build/ClayContext.swift.o",
+    "swiftmodule": "/Users/dserrano/Dev/swift-clay-wrapper/.build/arm64-apple-macosx/debug/ClaySwift.build/ClayContext~partial.swiftmodule",
+    "swift-dependencies": "/Users/dserrano/Dev/swift-clay-wrapper/.build/arm64-apple-macosx/debug/ClaySwift.build/ClayContext.swiftdeps",
+    "diagnostics": "/Users/dserrano/Dev/swift-clay-wrapper/.build/arm64-apple-macosx/debug/ClaySwift.build/ClayContext.dia"
+  },
+  "/Users/dserrano/Dev/swift-clay-wrapper/Sources/ClaySwift/ClayError.swift": {
+    "dependencies": "/Users/dserrano/Dev/swift-clay-wrapper/.build/arm64-apple-macosx/debug/ClaySwift.build/ClayError.d",
+    "object": "/Users/dserrano/Dev/swift-clay-wrapper/.build/arm64-apple-macosx/debug/ClaySwift.build/ClayError.swift.o",
+    "swiftmodule": "/Users/dserrano/Dev/swift-clay-wrapper/.build/arm64-apple-macosx/debug/ClaySwift.build/ClayError~partial.swiftmodule",
+    "swift-dependencies": "/Users/dserrano/Dev/swift-clay-wrapper/.build/arm64-apple-macosx/debug/ClaySwift.build/ClayError.swiftdeps",
+    "diagnostics": "/Users/dserrano/Dev/swift-clay-wrapper/.build/arm64-apple-macosx/debug/ClaySwift.build/ClayError.dia"
+  },
+  "/Users/dserrano/Dev/swift-clay-wrapper/Sources/ClaySwift/ClayFontRegistry.swift": {
+    "dependencies": "/Users/dserrano/Dev/swift-clay-wrapper/.build/arm64-apple-macosx/debug/ClaySwift.build/ClayFontRegistry.d",
+    "object": "/Users/dserrano/Dev/swift-clay-wrapper/.build/arm64-apple-macosx/debug/ClaySwift.build/ClayFontRegistry.swift.o",
+    "swiftmodule": "/Users/dserrano/Dev/swift-clay-wrapper/.build/arm64-apple-macosx/debug/ClaySwift.build/ClayFontRegistry~partial.swiftmodule",
+    "swift-dependencies": "/Users/dserrano/Dev/swift-clay-wrapper/.build/arm64-apple-macosx/debug/ClaySwift.build/ClayFontRegistry.swiftdeps",
+    "diagnostics": "/Users/dserrano/Dev/swift-clay-wrapper/.build/arm64-apple-macosx/debug/ClaySwift.build/ClayFontRegistry.dia"
+  },
+  "/Users/dserrano/Dev/swift-clay-wrapper/Sources/ClaySwift/ClayImage.swift": {
+    "dependencies": "/Users/dserrano/Dev/swift-clay-wrapper/.build/arm64-apple-macosx/debug/ClaySwift.build/ClayImage.d",
+    "object": "/Users/dserrano/Dev/swift-clay-wrapper/.build/arm64-apple-macosx/debug/ClaySwift.build/ClayImage.swift.o",
+    "swiftmodule": "/Users/dserrano/Dev/swift-clay-wrapper/.build/arm64-apple-macosx/debug/ClaySwift.build/ClayImage~partial.swiftmodule",
+    "swift-dependencies": "/Users/dserrano/Dev/swift-clay-wrapper/.build/arm64-apple-macosx/debug/ClaySwift.build/ClayImage.swiftdeps",
+    "diagnostics": "/Users/dserrano/Dev/swift-clay-wrapper/.build/arm64-apple-macosx/debug/ClaySwift.build/ClayImage.dia"
+  },
+  "/Users/dserrano/Dev/swift-clay-wrapper/Sources/ClaySwift/ClayRenderCommand.swift": {
+    "dependencies": "/Users/dserrano/Dev/swift-clay-wrapper/.build/arm64-apple-macosx/debug/ClaySwift.build/ClayRenderCommand.d",
+    "object": "/Users/dserrano/Dev/swift-clay-wrapper/.build/arm64-apple-macosx/debug/ClaySwift.build/ClayRenderCommand.swift.o",
+    "swiftmodule": "/Users/dserrano/Dev/swift-clay-wrapper/.build/arm64-apple-macosx/debug/ClaySwift.build/ClayRenderCommand~partial.swiftmodule",
+    "swift-dependencies": "/Users/dserrano/Dev/swift-clay-wrapper/.build/arm64-apple-macosx/debug/ClaySwift.build/ClayRenderCommand.swiftdeps",
+    "diagnostics": "/Users/dserrano/Dev/swift-clay-wrapper/.build/arm64-apple-macosx/debug/ClaySwift.build/ClayRenderCommand.dia"
+  },
+  "/Users/dserrano/Dev/swift-clay-wrapper/Sources/ClaySwift/ClayTypes.swift": {
+    "dependencies": "/Users/dserrano/Dev/swift-clay-wrapper/.build/arm64-apple-macosx/debug/ClaySwift.build/ClayTypes.d",
+    "object": "/Users/dserrano/Dev/swift-clay-wrapper/.build/arm64-apple-macosx/debug/ClaySwift.build/ClayTypes.swift.o",
+    "swiftmodule": "/Users/dserrano/Dev/swift-clay-wrapper/.build/arm64-apple-macosx/debug/ClaySwift.build/ClayTypes~partial.swiftmodule",
+    "swift-dependencies": "/Users/dserrano/Dev/swift-clay-wrapper/.build/arm64-apple-macosx/debug/ClaySwift.build/ClayTypes.swiftdeps",
+    "diagnostics": "/Users/dserrano/Dev/swift-clay-wrapper/.build/arm64-apple-macosx/debug/ClaySwift.build/ClayTypes.dia"
+  },
+  "/Users/dserrano/Dev/swift-clay-wrapper/Sources/ClaySwift/ClayWindow.swift": {
+    "dependencies": "/Users/dserrano/Dev/swift-clay-wrapper/.build/arm64-apple-macosx/debug/ClaySwift.build/ClayWindow.d",
+    "object": "/Users/dserrano/Dev/swift-clay-wrapper/.build/arm64-apple-macosx/debug/ClaySwift.build/ClayWindow.swift.o",
+    "swiftmodule": "/Users/dserrano/Dev/swift-clay-wrapper/.build/arm64-apple-macosx/debug/ClaySwift.build/ClayWindow~partial.swiftmodule",
+    "swift-dependencies": "/Users/dserrano/Dev/swift-clay-wrapper/.build/arm64-apple-macosx/debug/ClaySwift.build/ClayWindow.swiftdeps",
+    "diagnostics": "/Users/dserrano/Dev/swift-clay-wrapper/.build/arm64-apple-macosx/debug/ClaySwift.build/ClayWindow.dia"
+  }
+}
