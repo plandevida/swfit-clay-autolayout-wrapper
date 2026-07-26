@@ -306,8 +306,8 @@ public struct ClayLayoutConfig {
 
 // MARK: - ClayTextConfig
 
-public struct ClayTextConfig {
-    public var userData: UnsafeMutableRawPointer?
+public struct ClayTextConfig: Sendable {
+    public nonisolated(unsafe) var userData: UnsafeMutableRawPointer?
     public var textColor: ClayColor
     public var fontId: UInt16
     public var fontSize: UInt16

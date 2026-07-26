@@ -1,5 +1,6 @@
 import Testing
 import CClay
+import CSDL3
 @testable import ClaySwift
 
 // MARK: - Sendable Conformance
@@ -184,6 +185,7 @@ struct ArgumentOrderingTests {
 // MARK: - ClayContext
 
 @Suite("ClayContext", .serialized)
+@MainActor
 struct ClayContextTests {
 
     @Test func initialize() {
@@ -347,6 +349,7 @@ struct ClayTypesExtendedTests {
 // MARK: - ClayElement Configuration
 
 @Suite("ClayElement Configuration", .serialized)
+@MainActor
 struct ClayElementTests {
 
     @Test func elementDefaultID() {
@@ -398,6 +401,7 @@ struct ClayElementTests {
 // MARK: - ClayText Configuration
 
 @Suite("ClayText Configuration", .serialized)
+@MainActor
 struct ClayTextTests {
 
     @Test func textDefault() {
@@ -412,5 +416,162 @@ struct ClayTextTests {
         t.configure()
         let commands = ctx.endLayout(deltaTime: 0.016)
         #expect(commands.length >= 0)
+    }
+}
+
+// MARK: - ClayFontRegistry
+
+@Suite("ClayFontRegistry", .serialized)
+struct ClayFontRegistryTests {
+
+    @Test func registerReturnsSequentialIDs() throws {
+        TTF_Init()
+        let registry = ClayFontRegistry()
+        let id1 = try registry.register(name: "TestFont1", path: "/System/Library/Fonts/Helvetica.ttc", size: 16)
+        let id2 = try registry.register(name: "TestFont2", path: "/System/Library/Fonts/Helvetica.ttc", size: 16)
+        #expect(id1 == 0)
+        #expect(id2 == 1)
+    }
+
+    @Test func fontByIdReturnsRegisteredFont() throws {
+        TTF_Init()
+        let registry = ClayFontRegistry()
+        let id = try registry.register(name: "TestFont", path: "/System/Library/Fonts/Helvetica.ttc", size: 16)
+        let font = registry.font(byId: id)
+        #expect(font != nil)
+    }
+
+    @Test func fontIdNamedReturnsCorrectID() throws {
+        TTF_Init()
+        let registry = ClayFontRegistry()
+        let id = try registry.register(name: "MyFont", path: "/System/Library/Fonts/Helvetica.ttc", size: 16)
+        let lookedUp: UInt16? = registry.fontId(named: "MyFont")
+        #expect(lookedUp == id)
+    }
+
+    @Test func fontIdNamedReturnsNilForUnknown() {
+        TTF_Init()
+        let registry = ClayFontRegistry()
+        let lookedUp: UInt16? = registry.fontId(named: "Unknown")
+        #expect(lookedUp == nil)
+    }
+
+    @Test func subscriptAccess() throws {
+        TTF_Init()
+        let registry = ClayFontRegistry()
+        let id = try registry.register(name: "SubFont", path: "/System/Library/Fonts/Helvetica.ttc", size: 16)
+        #expect(registry["SubFont"] == id)
+    }
+
+    @Test func countIncrements() throws {
+        TTF_Init()
+        let registry = ClayFontRegistry()
+        #expect(registry.count == 0)
+        _ = try registry.register(name: "Font1", path: "/System/Library/Fonts/Helvetica.ttc", size: 16)
+        #expect(registry.count == 1)
+        _ = try registry.register(name: "Font2", path: "/System/Library/Fonts/Helvetica.ttc", size: 16)
+        #expect(registry.count == 2)
+    }
+
+    @Test func registerNonExistentPathThrows() {
+        TTF_Init()
+        let registry = ClayFontRegistry()
+        var didThrow = false
+        do {
+            _ = try registry.register(name: "Bad", path: "/nonexistent/font.ttf", size: 16)
+        } catch {
+            didThrow = true
+        }
+        #expect(didThrow)
+    }
+
+    @Test func fontIdNamedNotFoundThrows() {
+        TTF_Init()
+        let registry = ClayFontRegistry()
+        var didThrow = false
+        do {
+            let _: UInt16 = try registry.fontId(named: "Nonexistent")
+        } catch {
+            didThrow = true
+        }
+        #expect(didThrow)
+    }
+}
+
+// MARK: - ClayImageElement
+
+@Suite("ClayImageElement", .serialized)
+@MainActor
+struct ClayImageElementTests {
+
+    @Test func configureInLayout() {
+        let ctx = ClayContext(width: 800, height: 600)
+        ctx.beginLayout()
+        let el = ClayElement("img-wrapper",
+            layout: ClayLayoutConfig(sizing: .init(width: .grow(), height: .grow()))
+        ) {
+            ClayText("placeholder")
+        }
+        el.configure()
+        let commands = ctx.endLayout(deltaTime: 0.016)
+        #expect(commands.length >= 0)
+    }
+}
+
+// MARK: - ClayRectangle Configuration
+
+@Suite("ClayRectangle Configuration", .serialized)
+@MainActor
+struct ClayRectangleTests {
+
+    @Test func configureInLayout() {
+        let ctx = ClayContext(width: 800, height: 600)
+        ctx.beginLayout()
+        let rect = ClayRectangle(color: .red, cornerRadius: ClayCornerRadius(8))
+        rect.configure()
+        let commands = ctx.endLayout(deltaTime: 0.016)
+        #expect(commands.length >= 0)
+    }
+
+    @Test func defaultValues() {
+        let rect = ClayRectangle()
+        #expect(rect.color.r == 0 && rect.color.g == 0 && rect.color.b == 0 && rect.color.a == 0)
+        #expect(rect.cornerRadius.topLeft == 0)
+    }
+
+    @Test func customValues() {
+        let rect = ClayRectangle(color: .blue, cornerRadius: ClayCornerRadius(12))
+        #expect(rect.color.b == 255)
+        #expect(rect.cornerRadius.topLeft == 12)
+    }
+}
+
+// MARK: - ClayBorderElement Configuration
+
+@Suite("ClayBorderElement Configuration", .serialized)
+@MainActor
+struct ClayBorderElementTests {
+
+    @Test func configureInLayout() {
+        let ctx = ClayContext(width: 800, height: 600)
+        ctx.beginLayout()
+        let border = ClayBorderElement(2, color: .black, cornerRadius: ClayCornerRadius(4))
+        border.configure()
+        let commands = ctx.endLayout(deltaTime: 0.016)
+        #expect(commands.length >= 0)
+    }
+
+    @Test func initWithConfig() {
+        let config = ClayBorderConfig(width: ClayBorderWidth(3), color: .red, cornerRadius: ClayCornerRadius(6))
+        let border = ClayBorderElement(config)
+        #expect(border.config.width.left == 3)
+        #expect(border.config.color.r == 255 && border.config.color.g == 0 && border.config.color.b == 0)
+        #expect(border.config.cornerRadius.topLeft == 6)
+    }
+
+    @Test func initWithConvenience() {
+        let border = ClayBorderElement(1, color: .green)
+        #expect(border.config.width.left == 1)
+        #expect(border.config.color.g == 255)
     }
 }

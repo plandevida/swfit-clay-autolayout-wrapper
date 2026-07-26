@@ -5,8 +5,8 @@ struct BasicUI {
     static func main() throws {
         let window = try ClayWindow(title: "ClaySwift Basic UI", width: 1200, height: 800)
 
-        let fontId = window.registerFont(name: "Regular", path: "/System/Library/Fonts/Helvetica.ttc", size: 16)
-        _ = window.registerFont(name: "Bold", path: "/System/Library/Fonts/Helvetica.ttc", size: 24)
+        let fontId = try window.registerFont(name: "Regular", path: "/System/Library/Fonts/Helvetica.ttc", size: 16)
+        _ = try window.registerFont(name: "Bold", path: "/System/Library/Fonts/Helvetica.ttc", size: 24)
 
         var clickCount = 0
         let messages = ["Hello!", "Click me!", "Again!", "One more!", "Keep going!", "You did it!"]

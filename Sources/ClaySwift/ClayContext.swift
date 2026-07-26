@@ -2,9 +2,10 @@ import CClay
 
 // MARK: - ClayContext
 
+@MainActor
 public final class ClayContext {
-    private var arenaBuffer: UnsafeMutableRawPointer?
-    private var contextPtr: OpaquePointer?
+    nonisolated(unsafe) private var arenaBuffer: UnsafeMutableRawPointer?
+    nonisolated(unsafe) private var contextPtr: OpaquePointer?
 
     public init(
         width: Float,

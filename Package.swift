@@ -19,38 +19,30 @@ let package = Package(
                 .headerSearchPath("."),
             ]
         ),
+        .systemLibrary(
+            name: "CSDLSupport",
+            pkgConfig: "sdl3 sdl3-ttf sdl3-image",
+            providers: [
+                .brew(["sdl3", "sdl3_ttf", "sdl3_image"]),
+            ]
+        ),
         .target(
             name: "CSDL3",
-            dependencies: ["CClay"],
+            dependencies: ["CClay", "CSDLSupport"],
             path: "Sources/CSDL3",
             publicHeadersPath: "include",
             cSettings: [
                 .headerSearchPath("."),
-                .unsafeFlags([
-                    "-I/usr/local/include",
-                    "-I/opt/homebrew/include",
-                    "-I/usr/include",
-                ]),
             ],
             linkerSettings: [
                 .linkedLibrary("SDL3"),
                 .linkedLibrary("SDL3_ttf"),
                 .linkedLibrary("SDL3_image"),
-                .unsafeFlags([
-                    "-L/usr/local/lib",
-                    "-L/opt/homebrew/lib",
-                ]),
             ]
         ),
         .target(
             name: "ClaySwift",
             dependencies: ["CClay", "CSDL3"],
-            swiftSettings: [
-                .unsafeFlags([
-                    "-I/usr/local/include",
-                    "-I/opt/homebrew/include",
-                ]),
-            ]
         ),
         .testTarget(
             name: "ClaySwiftTests",

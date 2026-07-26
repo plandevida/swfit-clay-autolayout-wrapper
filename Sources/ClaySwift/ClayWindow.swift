@@ -9,14 +9,15 @@ private let SDL_BUTTON_LMASK_VALUE: SDL_MouseButtonFlags = 1
 
 // MARK: - ClayWindow
 
+@MainActor
 public final class ClayWindow {
     public let title: String
     public let width: Int32
     public let height: Int32
 
-    private var window: OpaquePointer? // SDL_Window*
-    private var renderer: OpaquePointer? // SDL_Renderer*
-    private var textEngine: OpaquePointer? // TTF_TextEngine*
+    nonisolated(unsafe) private var window: OpaquePointer? // SDL_Window*
+    nonisolated(unsafe) private var renderer: OpaquePointer? // SDL_Renderer*
+    nonisolated(unsafe) private var textEngine: OpaquePointer? // TTF_TextEngine*
     private var fontRegistry: ClayFontRegistry
     private var clayContext: ClayContext?
     private var isRunning = false
@@ -63,6 +64,8 @@ public final class ClayWindow {
         }
         self.renderer = rend
 
+        SDL_SetRenderVSync(rend, 1)
+
         guard let engine = TTF_CreateRendererTextEngine(rend) else {
             let error = String(cString: SDL_GetError())
             throw ClayWindowError.textEngineCreationFailed(error)
@@ -99,8 +102,8 @@ public final class ClayWindow {
     // MARK: - Font Registration
 
     @discardableResult
-    public func registerFont(name: String, path: String, size: Int32 = 16) -> UInt16 {
-        fontRegistry.register(name: name, path: path, size: size)
+    public func registerFont(name: String, path: String, size: Int32 = 16) throws -> UInt16 {
+        try fontRegistry.register(name: name, path: path, size: size)
     }
 
     public func fontId(named name: String) -> UInt16 {
@@ -243,7 +246,7 @@ public final class ClayWindow {
 
     // MARK: - Shutdown
 
-    private func shutdown() {
+    private nonisolated func shutdown() {
         if let textEngine = textEngine { TTF_DestroyRendererTextEngine(textEngine); self.textEngine = nil }
         if let renderer = renderer { SDL_DestroyRenderer(renderer); self.renderer = nil }
         if let window = window { SDL_DestroyWindow(window); self.window = nil }

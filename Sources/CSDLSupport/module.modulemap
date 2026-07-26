@@ -1,0 +1,7 @@
+module CSDLSupport [system] {
+    header "shim.h"
+    link "SDL3"
+    link "SDL3_ttf"
+    link "SDL3_image"
+    export *
+}

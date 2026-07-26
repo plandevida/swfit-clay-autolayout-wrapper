@@ -1,8 +1,24 @@
 import CSDL3
 
+// MARK: - ClayFontRegistry Errors
+
+public enum ClayFontRegistryError: Error, CustomStringConvertible {
+    case fontLoadFailed(name: String, path: String, message: String)
+    case fontNotFound(name: String)
+
+    public var description: String {
+        switch self {
+        case .fontLoadFailed(let name, let path, let message):
+            return "[ClayFontRegistry] Failed to load font '\(name)' from '\(path)': \(message)"
+        case .fontNotFound(let name):
+            return "[ClayFontRegistry] Font '\(name)' not registered. Call register() first."
+        }
+    }
+}
+
 // MARK: - ClayFontRegistry
 
-public final class ClayFontRegistry {
+public final class ClayFontRegistry: @unchecked Sendable {
     private var fonts: [UInt16: OpaquePointer] = [:] // fontId -> TTF_Font*
     private var fontNames: [String: UInt16] = [:]   // name -> fontId
     private var nextId: UInt16 = 0
@@ -17,10 +33,10 @@ public final class ClayFontRegistry {
     }
 
     @discardableResult
-    public func register(name: String, path: String, size: Int32 = 16) -> UInt16 {
+    public func register(name: String, path: String, size: Int32 = 16) throws -> UInt16 {
         guard let font = TTF_OpenFont(path, Float(size)) else {
             let error = String(cString: SDL_GetError())
-            fatalError("[ClayFontRegistry] Failed to load font '\(name)' from '\(path)': \(error)")
+            throw ClayFontRegistryError.fontLoadFailed(name: name, path: path, message: error)
         }
 
         let id = nextId
@@ -44,11 +60,20 @@ public final class ClayFontRegistry {
         fontNames[name]
     }
 
-    public subscript(name: String) -> UInt16 {
+    public func fontId(named name: String) throws -> UInt16 {
         guard let id = fontNames[name] else {
-            fatalError("[ClayFontRegistry] Font '\(name)' not registered. Call register() first.")
+            throw ClayFontRegistryError.fontNotFound(name: name)
         }
         return id
+    }
+
+    public subscript(name: String) -> UInt16 {
+        get {
+            guard let id = fontNames[name] else {
+                fatalError("[ClayFontRegistry] Font '\(name)' not registered. Call register() first.")
+            }
+            return id
+        }
     }
 
     public var count: Int {

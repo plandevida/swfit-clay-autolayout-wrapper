@@ -1,6 +1,18 @@
 import CClay
 import Foundation
 
+// MARK: - Stable Element ID Counter
+
+private let _elementCounterQueue = DispatchQueue(label: "com.clay.elementCounter")
+private nonisolated(unsafe) var _globalElementCounter: UInt32 = 0
+
+internal func _nextStableElementId() -> UInt32 {
+    _elementCounterQueue.sync {
+        _globalElementCounter += 1
+        return _globalElementCounter
+    }
+}
+
 // MARK: - ClayElementProtocol
 
 public protocol ClayElementProtocol {
@@ -126,7 +138,7 @@ public struct ClayRectangle: ClayElementProtocol {
     }
 
     public func configure() {
-        let elementId = Clay__HashString(ClayMakeString("__rect_\(UUID().uuidString)"), 0)
+        let elementId = Clay__HashString(ClayMakeString("__rect_\(_nextStableElementId())"), 0)
         var decl = clayDefaultDecl()
         decl.backgroundColor = color.cClayColor
         decl.cornerRadius = cornerRadius.cCornerRadius
@@ -149,7 +161,7 @@ public struct ClayImageElement: ClayElementProtocol {
     }
 
     public func configure() {
-        let elementId = Clay__HashString(ClayMakeString("__img_\(UUID().uuidString)"), 0)
+        let elementId = Clay__HashString(ClayMakeString("__img_\(_nextStableElementId())"), 0)
         var decl = clayDefaultDecl()
         decl.image = Clay_ImageElementConfig(imageData: image.texturePtr)
 
@@ -173,7 +185,7 @@ public struct ClayBorderElement: ClayElementProtocol {
     }
 
     public func configure() {
-        let elementId = Clay__HashString(ClayMakeString("__border_\(UUID().uuidString)"), 0)
+        let elementId = Clay__HashString(ClayMakeString("__border_\(_nextStableElementId())"), 0)
         var decl = clayDefaultDecl()
         decl.cornerRadius = config.cornerRadius.cCornerRadius
         decl.border = config.cBorderElementConfig
