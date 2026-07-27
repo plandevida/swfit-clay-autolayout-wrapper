@@ -3,12 +3,10 @@ import PackageDescription
 
 let package = Package(
     name: "ClaySwift",
-    platforms: [
-        .macOS(.v13),
-    ],
     products: [
         .library(name: "ClaySwift", targets: ["ClaySwift"]),
         .executable(name: "BasicUI", targets: ["BasicUI"]),
+        .executable(name: "BasicSwiftUI", targets: ["BasicSwiftUI"]),
     ],
     targets: [
         .target(
@@ -42,7 +40,7 @@ let package = Package(
         ),
         .target(
             name: "ClaySwift",
-            dependencies: ["CClay", "CSDL3"],
+            dependencies: ["CClay", "CSDL3"]
         ),
         .testTarget(
             name: "ClaySwiftTests",
@@ -53,5 +51,13 @@ let package = Package(
             dependencies: ["ClaySwift"],
             path: "Examples/BasicUI"
         ),
+        .executableTarget(
+            name: "BasicSwiftUI",
+            path: "Examples/BasicSwiftUI"
+        ),
     ]
 )
+
+#if os(macOS)
+    package.platforms = [.macOS("13")]
+#endif
