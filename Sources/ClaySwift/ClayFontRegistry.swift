@@ -1,4 +1,36 @@
 import CSDL3
+#if canImport(Darwin)
+import Darwin
+#elseif canImport(Glibc)
+import Glibc
+#elseif canImport(WinSDK)
+import WinSDK
+#endif
+
+// MARK: - System Font Resolution
+
+public func findSystemFont() -> String {
+    #if canImport(Darwin)
+    let candidates = ["/System/Library/Fonts/Helvetica.ttc"]
+    #elseif canImport(Glibc)
+    let candidates = [
+        "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf",
+        "/usr/share/fonts/truetype/liberation/LiberationSans-Regular.ttf",
+        "/usr/share/fonts/TTF/DejaVuSans.ttf",
+    ]
+    #elseif canImport(WinSDK)
+    let candidates = [
+        "C:\\Windows\\Fonts\\arial.ttf",
+        "C:\\Windows\\Fonts\\times.ttf",
+    ]
+    #else
+    let candidates: [String] = []
+    #endif
+    for path in candidates {
+        if access(path, F_OK) == 0 { return path }
+    }
+    return "/System/Library/Fonts/Helvetica.ttc"
+}
 
 // MARK: - ClayFontRegistry Errors
 
@@ -33,10 +65,11 @@ public final class ClayFontRegistry: @unchecked Sendable {
     }
 
     @discardableResult
-    public func register(name: String, path: String, size: Int32 = 16) throws -> UInt16 {
-        guard let font = TTF_OpenFont(path, Float(size)) else {
+    public func register(name: String, path: String? = nil, size: Int32 = 16) throws -> UInt16 {
+        let resolvedPath = path ?? findSystemFont()
+        guard let font = TTF_OpenFont(resolvedPath, Float(size)) else {
             let error = String(cString: SDL_GetError())
-            throw ClayFontRegistryError.fontLoadFailed(name: name, path: path, message: error)
+            throw ClayFontRegistryError.fontLoadFailed(name: name, path: resolvedPath, message: error)
         }
 
         let id = nextId

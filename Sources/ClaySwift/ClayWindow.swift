@@ -102,7 +102,7 @@ public final class ClayWindow {
     // MARK: - Font Registration
 
     @discardableResult
-    public func registerFont(name: String, path: String, size: Int32 = 16) throws -> UInt16 {
+    public func registerFont(name: String, path: String? = nil, size: Int32 = 16) throws -> UInt16 {
         try fontRegistry.register(name: name, path: path, size: size)
     }
 

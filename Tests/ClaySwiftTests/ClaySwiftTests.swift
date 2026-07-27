@@ -427,8 +427,8 @@ struct ClayFontRegistryTests {
     @Test func registerReturnsSequentialIDs() throws {
         TTF_Init()
         let registry = ClayFontRegistry()
-        let id1 = try registry.register(name: "TestFont1", path: "/System/Library/Fonts/Helvetica.ttc", size: 16)
-        let id2 = try registry.register(name: "TestFont2", path: "/System/Library/Fonts/Helvetica.ttc", size: 16)
+        let id1 = try registry.register(name: "TestFont1", size: 16)
+        let id2 = try registry.register(name: "TestFont2", size: 16)
         #expect(id1 == 0)
         #expect(id2 == 1)
     }
@@ -436,7 +436,7 @@ struct ClayFontRegistryTests {
     @Test func fontByIdReturnsRegisteredFont() throws {
         TTF_Init()
         let registry = ClayFontRegistry()
-        let id = try registry.register(name: "TestFont", path: "/System/Library/Fonts/Helvetica.ttc", size: 16)
+        let id = try registry.register(name: "TestFont", size: 16)
         let font = registry.font(byId: id)
         #expect(font != nil)
     }
@@ -444,7 +444,7 @@ struct ClayFontRegistryTests {
     @Test func fontIdNamedReturnsCorrectID() throws {
         TTF_Init()
         let registry = ClayFontRegistry()
-        let id = try registry.register(name: "MyFont", path: "/System/Library/Fonts/Helvetica.ttc", size: 16)
+        let id = try registry.register(name: "MyFont", size: 16)
         let lookedUp: UInt16? = registry.fontId(named: "MyFont")
         #expect(lookedUp == id)
     }
@@ -459,7 +459,7 @@ struct ClayFontRegistryTests {
     @Test func subscriptAccess() throws {
         TTF_Init()
         let registry = ClayFontRegistry()
-        let id = try registry.register(name: "SubFont", path: "/System/Library/Fonts/Helvetica.ttc", size: 16)
+        let id = try registry.register(name: "SubFont", size: 16)
         #expect(registry["SubFont"] == id)
     }
 
@@ -467,9 +467,9 @@ struct ClayFontRegistryTests {
         TTF_Init()
         let registry = ClayFontRegistry()
         #expect(registry.count == 0)
-        _ = try registry.register(name: "Font1", path: "/System/Library/Fonts/Helvetica.ttc", size: 16)
+        _ = try registry.register(name: "Font1", size: 16)
         #expect(registry.count == 1)
-        _ = try registry.register(name: "Font2", path: "/System/Library/Fonts/Helvetica.ttc", size: 16)
+        _ = try registry.register(name: "Font2", size: 16)
         #expect(registry.count == 2)
     }
 

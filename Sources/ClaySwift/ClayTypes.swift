@@ -1,8 +1,10 @@
 import CClay
 #if canImport(Darwin)
-import Darwin
+    import Darwin
 #elseif canImport(Glibc)
-import Glibc
+    import Glibc
+#elseif canImport(WinSDK)
+    import WinSDK
 #endif
 
 // MARK: - C Enum Helpers
@@ -10,64 +12,64 @@ import Glibc
 // CLAY_PACKED_ENUM is imported as opaque types in Swift.
 // We use unsafeBitCast to create values from raw UInt8.
 
-internal func _clayEnum<T>(_ value: UInt8) -> T {
+func _clayEnum<T>(_ value: UInt8) -> T {
     unsafeBitCast(value, to: T.self)
 }
 
 // Layout direction
-internal let CLAY_LEFT_TO_RIGHT_U8: UInt8 = 0
-internal let CLAY_TOP_TO_BOTTOM_U8: UInt8 = 1
+let CLAY_LEFT_TO_RIGHT_U8: UInt8 = 0
+let CLAY_TOP_TO_BOTTOM_U8: UInt8 = 1
 
 // Alignment X
-internal let CLAY_ALIGN_X_LEFT_U8: UInt8 = 0
-internal let CLAY_ALIGN_X_RIGHT_U8: UInt8 = 1
-internal let CLAY_ALIGN_X_CENTER_U8: UInt8 = 2
+let CLAY_ALIGN_X_LEFT_U8: UInt8 = 0
+let CLAY_ALIGN_X_RIGHT_U8: UInt8 = 1
+let CLAY_ALIGN_X_CENTER_U8: UInt8 = 2
 
 // Alignment Y
-internal let CLAY_ALIGN_Y_TOP_U8: UInt8 = 0
-internal let CLAY_ALIGN_Y_BOTTOM_U8: UInt8 = 1
-internal let CLAY_ALIGN_Y_CENTER_U8: UInt8 = 2
+let CLAY_ALIGN_Y_TOP_U8: UInt8 = 0
+let CLAY_ALIGN_Y_BOTTOM_U8: UInt8 = 1
+let CLAY_ALIGN_Y_CENTER_U8: UInt8 = 2
 
 // Sizing type
-internal let CLAY__SIZING_TYPE_FIT_U8: UInt8 = 0
-internal let CLAY__SIZING_TYPE_GROW_U8: UInt8 = 1
-internal let CLAY__SIZING_TYPE_PERCENT_U8: UInt8 = 2
-internal let CLAY__SIZING_TYPE_FIXED_U8: UInt8 = 3
+let CLAY__SIZING_TYPE_FIT_U8: UInt8 = 0
+let CLAY__SIZING_TYPE_GROW_U8: UInt8 = 1
+let CLAY__SIZING_TYPE_PERCENT_U8: UInt8 = 2
+let CLAY__SIZING_TYPE_FIXED_U8: UInt8 = 3
 
 // Text wrap mode
-internal let CLAY_TEXT_WRAP_WORDS_U8: UInt8 = 0
-internal let CLAY_TEXT_WRAP_NEWLINES_U8: UInt8 = 1
-internal let CLAY_TEXT_WRAP_NONE_U8: UInt8 = 2
+let CLAY_TEXT_WRAP_WORDS_U8: UInt8 = 0
+let CLAY_TEXT_WRAP_NEWLINES_U8: UInt8 = 1
+let CLAY_TEXT_WRAP_NONE_U8: UInt8 = 2
 
 // Text alignment
-internal let CLAY_TEXT_ALIGN_LEFT_U8: UInt8 = 0
-internal let CLAY_TEXT_ALIGN_CENTER_U8: UInt8 = 1
-internal let CLAY_TEXT_ALIGN_RIGHT_U8: UInt8 = 2
+let CLAY_TEXT_ALIGN_LEFT_U8: UInt8 = 0
+let CLAY_TEXT_ALIGN_CENTER_U8: UInt8 = 1
+let CLAY_TEXT_ALIGN_RIGHT_U8: UInt8 = 2
 
 // Floating attach to
-internal let CLAY_ATTACH_TO_NONE_U8: UInt8 = 0
-internal let CLAY_ATTACH_TO_PARENT_U8: UInt8 = 1
-internal let CLAY_ATTACH_TO_ELEMENT_WITH_ID_U8: UInt8 = 2
-internal let CLAY_ATTACH_TO_ROOT_U8: UInt8 = 3
+let CLAY_ATTACH_TO_NONE_U8: UInt8 = 0
+let CLAY_ATTACH_TO_PARENT_U8: UInt8 = 1
+let CLAY_ATTACH_TO_ELEMENT_WITH_ID_U8: UInt8 = 2
+let CLAY_ATTACH_TO_ROOT_U8: UInt8 = 3
 
 // Floating clip to
-internal let CLAY_CLIP_TO_NONE_U8: UInt8 = 0
-internal let CLAY_CLIP_TO_ATTACHED_PARENT_U8: UInt8 = 1
+let CLAY_CLIP_TO_NONE_U8: UInt8 = 0
+let CLAY_CLIP_TO_ATTACHED_PARENT_U8: UInt8 = 1
 
 // Pointer capture mode
-internal let CLAY_POINTER_CAPTURE_MODE_CAPTURE_U8: UInt8 = 0
-internal let CLAY_POINTER_CAPTURE_MODE_PASSTHROUGH_U8: UInt8 = 1
+let CLAY_POINTER_CAPTURE_MODE_CAPTURE_U8: UInt8 = 0
+let CLAY_POINTER_CAPTURE_MODE_PASSTHROUGH_U8: UInt8 = 1
 
 // Attach point types (0-8)
-internal let CLAY_ATTACH_POINT_LEFT_TOP_U8: UInt8 = 0
-internal let CLAY_ATTACH_POINT_LEFT_CENTER_U8: UInt8 = 1
-internal let CLAY_ATTACH_POINT_LEFT_BOTTOM_U8: UInt8 = 2
-internal let CLAY_ATTACH_POINT_CENTER_TOP_U8: UInt8 = 3
-internal let CLAY_ATTACH_POINT_CENTER_CENTER_U8: UInt8 = 4
-internal let CLAY_ATTACH_POINT_CENTER_BOTTOM_U8: UInt8 = 5
-internal let CLAY_ATTACH_POINT_RIGHT_TOP_U8: UInt8 = 6
-internal let CLAY_ATTACH_POINT_RIGHT_CENTER_U8: UInt8 = 7
-internal let CLAY_ATTACH_POINT_RIGHT_BOTTOM_U8: UInt8 = 8
+let CLAY_ATTACH_POINT_LEFT_TOP_U8: UInt8 = 0
+let CLAY_ATTACH_POINT_LEFT_CENTER_U8: UInt8 = 1
+let CLAY_ATTACH_POINT_LEFT_BOTTOM_U8: UInt8 = 2
+let CLAY_ATTACH_POINT_CENTER_TOP_U8: UInt8 = 3
+let CLAY_ATTACH_POINT_CENTER_CENTER_U8: UInt8 = 4
+let CLAY_ATTACH_POINT_CENTER_BOTTOM_U8: UInt8 = 5
+let CLAY_ATTACH_POINT_RIGHT_TOP_U8: UInt8 = 6
+let CLAY_ATTACH_POINT_RIGHT_CENTER_U8: UInt8 = 7
+let CLAY_ATTACH_POINT_RIGHT_BOTTOM_U8: UInt8 = 8
 
 // MARK: - Type Aliases
 
@@ -139,11 +141,11 @@ public struct ClayPadding: Sendable {
     }
 
     public init(_ all: UInt16) {
-        self.left = all; self.right = all; self.top = all; self.bottom = all
+        left = all; right = all; top = all; bottom = all
     }
 
     public init(horizontal: UInt16, vertical: UInt16) {
-        self.left = horizontal; self.right = horizontal; self.top = vertical; self.bottom = vertical
+        left = horizontal; right = horizontal; top = vertical; bottom = vertical
     }
 
     public var cPadding: Clay_Padding {
@@ -166,7 +168,7 @@ public struct ClayCornerRadius: Sendable {
     }
 
     public init(_ all: Float) {
-        self.topLeft = all; self.topRight = all; self.bottomLeft = all; self.bottomRight = all
+        topLeft = all; topRight = all; bottomLeft = all; bottomRight = all
     }
 
     public var cCornerRadius: Clay_CornerRadius {
@@ -184,19 +186,19 @@ public enum ClaySizingAxis: Sendable {
     case fixed(Float)
     case percent(Float)
 
-    internal var cSizingAxis: Clay_SizingAxis {
+    var cSizingAxis: Clay_SizingAxis {
         var axis = Clay_SizingAxis()
         switch self {
         case .fit:
             axis.type = _clayEnum(CLAY__SIZING_TYPE_FIT_U8)
             axis.size.minMax = Clay_SizingMinMax(min: 0, max: 0)
-        case .grow(let max):
+        case let .grow(max):
             axis.type = _clayEnum(CLAY__SIZING_TYPE_GROW_U8)
             axis.size.minMax = Clay_SizingMinMax(min: 0, max: max ?? 0)
-        case .fixed(let value):
+        case let .fixed(value):
             axis.type = _clayEnum(CLAY__SIZING_TYPE_FIXED_U8)
             axis.size.minMax = Clay_SizingMinMax(min: value, max: value)
-        case .percent(let value):
+        case let .percent(value):
             axis.type = _clayEnum(CLAY__SIZING_TYPE_PERCENT_U8)
             axis.size.percent = value
         }
@@ -213,7 +215,7 @@ public struct ClaySizing {
     }
 
     public init(_ axis: ClaySizingAxis) {
-        self.width = axis; self.height = axis
+        width = axis; height = axis
     }
 
     public static func fixed(width: Float, height: Float) -> ClaySizing {
@@ -224,7 +226,7 @@ public struct ClaySizing {
         ClaySizing(width: .grow(max: maxWidth), height: .grow(max: maxHeight))
     }
 
-    internal var cSizing: Clay_Sizing {
+    var cSizing: Clay_Sizing {
         Clay_Sizing(width: width.cSizingAxis, height: height.cSizingAxis)
     }
 }
@@ -233,12 +235,16 @@ public struct ClaySizing {
 
 public enum ClayAlignmentX: UInt8, Sendable {
     case left = 0, right = 1, center = 2
-    internal var cAlignmentX: Clay_LayoutAlignmentX { _clayEnum(rawValue) }
+    var cAlignmentX: Clay_LayoutAlignmentX {
+        _clayEnum(rawValue)
+    }
 }
 
 public enum ClayAlignmentY: UInt8, Sendable {
     case top = 0, bottom = 1, center = 2
-    internal var cAlignmentY: Clay_LayoutAlignmentY { _clayEnum(rawValue) }
+    var cAlignmentY: Clay_LayoutAlignmentY {
+        _clayEnum(rawValue)
+    }
 }
 
 public struct ClayChildAlignment: Sendable {
@@ -251,7 +257,7 @@ public struct ClayChildAlignment: Sendable {
 
     public static let center = ClayChildAlignment(x: .center, y: .center)
 
-    internal var cChildAlignment: Clay_ChildAlignment {
+    var cChildAlignment: Clay_ChildAlignment {
         Clay_ChildAlignment(x: x.cAlignmentX, y: y.cAlignmentY)
     }
 }
@@ -260,7 +266,7 @@ public struct ClayChildAlignment: Sendable {
 
 public enum ClayLayoutDirection: Sendable {
     case leftToRight, topToBottom
-    internal var cLayoutDirection: Clay_LayoutDirection {
+    var cLayoutDirection: Clay_LayoutDirection {
         switch self {
         case .leftToRight: return _clayEnum(CLAY_LEFT_TO_RIGHT_U8)
         case .topToBottom: return _clayEnum(CLAY_TOP_TO_BOTTOM_U8)
@@ -289,7 +295,7 @@ public struct ClayLayoutConfig {
         self.layoutDirection = layoutDirection
     }
 
-    internal var cLayoutConfig: Clay_LayoutConfig {
+    var cLayoutConfig: Clay_LayoutConfig {
         var config = Clay_LayoutConfig(
             sizing: sizing.cSizing,
             padding: padding.cPadding,
@@ -321,13 +327,13 @@ public struct ClayTextConfig: Sendable {
         letterSpacing: UInt16 = 0, lineHeight: UInt16 = 0,
         wrapMode: ClayTextWrapMode = .words, textAlignment: ClayTextAlignment = .left
     ) {
-        self.userData = nil; self.textColor = textColor; self.fontId = fontId
+        userData = nil; self.textColor = textColor; self.fontId = fontId
         self.fontSize = fontSize; self.letterSpacing = letterSpacing
         self.lineHeight = lineHeight; self.wrapMode = wrapMode
         self.textAlignment = textAlignment
     }
 
-    internal var cTextElementConfig: Clay_TextElementConfig {
+    var cTextElementConfig: Clay_TextElementConfig {
         Clay_TextElementConfig(
             userData: userData, textColor: textColor.cClayColor,
             fontId: fontId, fontSize: fontSize,
@@ -339,7 +345,7 @@ public struct ClayTextConfig: Sendable {
 
 public enum ClayTextWrapMode: Sendable {
     case words, newlines, none
-    internal var cWrapMode: Clay_TextElementConfigWrapMode {
+    var cWrapMode: Clay_TextElementConfigWrapMode {
         switch self {
         case .words: return _clayEnum(CLAY_TEXT_WRAP_WORDS_U8)
         case .newlines: return _clayEnum(CLAY_TEXT_WRAP_NEWLINES_U8)
@@ -350,7 +356,7 @@ public enum ClayTextWrapMode: Sendable {
 
 public enum ClayTextAlignment: Sendable {
     case left, center, right
-    internal var cTextAlignment: Clay_TextAlignment {
+    var cTextAlignment: Clay_TextAlignment {
         switch self {
         case .left: return _clayEnum(CLAY_TEXT_ALIGN_LEFT_U8)
         case .center: return _clayEnum(CLAY_TEXT_ALIGN_CENTER_U8)
@@ -374,11 +380,11 @@ public struct ClayBorderWidth {
     }
 
     public init(_ all: UInt16) {
-        self.left = all; self.right = all; self.top = all
-        self.bottom = all; self.betweenChildren = 0
+        left = all; right = all; top = all
+        bottom = all; betweenChildren = 0
     }
 
-    internal var cBorderWidth: Clay_BorderWidth {
+    var cBorderWidth: Clay_BorderWidth {
         Clay_BorderWidth(left: left, right: right, top: top, bottom: bottom, betweenChildren: betweenChildren)
     }
 }
@@ -396,7 +402,7 @@ public struct ClayBorderConfig {
         self.width = ClayBorderWidth(width); self.color = color; self.cornerRadius = cornerRadius
     }
 
-    internal var cBorderElementConfig: Clay_BorderElementConfig {
+    var cBorderElementConfig: Clay_BorderElementConfig {
         Clay_BorderElementConfig(color: color.cClayColor, width: width.cBorderWidth)
     }
 }
@@ -405,7 +411,7 @@ public struct ClayBorderConfig {
 
 public enum ClayFloatingAttachTo: Sendable {
     case none, parent, elementWithID(ClayID), root
-    internal var cAttachTo: Clay_FloatingAttachToElement {
+    var cAttachTo: Clay_FloatingAttachToElement {
         switch self {
         case .none: return _clayEnum(CLAY_ATTACH_TO_NONE_U8)
         case .parent: return _clayEnum(CLAY_ATTACH_TO_PARENT_U8)
@@ -417,7 +423,7 @@ public enum ClayFloatingAttachTo: Sendable {
 
 public enum ClayFloatingClipTo: Sendable {
     case none, attachedParent
-    internal var cClipTo: Clay_FloatingClipToElement {
+    var cClipTo: Clay_FloatingClipToElement {
         switch self {
         case .none: return _clayEnum(CLAY_CLIP_TO_NONE_U8)
         case .attachedParent: return _clayEnum(CLAY_CLIP_TO_ATTACHED_PARENT_U8)
@@ -427,7 +433,7 @@ public enum ClayFloatingClipTo: Sendable {
 
 public enum ClayPointerCaptureMode: Sendable {
     case capture, passthrough
-    internal var cPointerCaptureMode: Clay_PointerCaptureMode {
+    var cPointerCaptureMode: Clay_PointerCaptureMode {
         switch self {
         case .capture: return _clayEnum(CLAY_POINTER_CAPTURE_MODE_CAPTURE_U8)
         case .passthrough: return _clayEnum(CLAY_POINTER_CAPTURE_MODE_PASSTHROUGH_U8)
@@ -440,7 +446,7 @@ public enum ClayAttachPoint: Sendable {
     case centerTop, centerCenter, centerBottom
     case rightTop, rightCenter, rightBottom
 
-    internal var cAttachPoint: Clay_FloatingAttachPointType {
+    var cAttachPoint: Clay_FloatingAttachPointType {
         switch self {
         case .leftTop: return _clayEnum(CLAY_ATTACH_POINT_LEFT_TOP_U8)
         case .leftCenter: return _clayEnum(CLAY_ATTACH_POINT_LEFT_CENTER_U8)
@@ -479,7 +485,7 @@ public struct ClayFloatingConfig {
         self.pointerCaptureMode = pointerCaptureMode; self.attachTo = attachTo; self.clipTo = clipTo
     }
 
-    internal var cFloatingConfig: Clay_FloatingElementConfig {
+    var cFloatingConfig: Clay_FloatingElementConfig {
         Clay_FloatingElementConfig(
             offset: offset, expand: expand,
             parentId: parentId?.cElementId.id ?? 0, zIndex: zIndex,
@@ -504,7 +510,7 @@ public struct ClayClipConfig {
         self.horizontal = horizontal; self.vertical = vertical; self.childOffset = childOffset
     }
 
-    internal var cClipConfig: Clay_ClipElementConfig {
+    var cClipConfig: Clay_ClipElementConfig {
         Clay_ClipElementConfig(horizontal: horizontal, vertical: vertical, childOffset: childOffset)
     }
 }
@@ -513,8 +519,11 @@ public struct ClayClipConfig {
 
 public struct ClayAspectRatioConfig {
     public var ratio: Float
-    public init(_ ratio: Float) { self.ratio = ratio }
-    internal var cAspectRatioConfig: Clay_AspectRatioElementConfig {
+    public init(_ ratio: Float) {
+        self.ratio = ratio
+    }
+
+    var cAspectRatioConfig: Clay_AspectRatioElementConfig {
         Clay_AspectRatioElementConfig(aspectRatio: ratio)
     }
 }
@@ -535,7 +544,7 @@ public struct SDLInputState: Sendable {
 
     public init() {}
 
-    internal mutating func resetFrameState() {
+    mutating func resetFrameState() {
         mouseLeftPressed = false
         mouseLeftReleased = false
         scrollX = 0
@@ -547,18 +556,22 @@ public struct SDLInputState: Sendable {
 
 // MARK: - String Helpers
 
-nonisolated(unsafe) private var clayStringBuffers: [UnsafeMutablePointer<CChar>] = []
+private nonisolated(unsafe) var clayStringBuffers: [UnsafeMutablePointer<CChar>] = []
 
-private func clayAllocateString(_ bytes: Array<UInt8>) -> UnsafeMutablePointer<CChar> {
+private func clayAllocateString(_ bytes: [UInt8]) -> UnsafeMutablePointer<CChar> {
     let buffer = UnsafeMutablePointer<CChar>.allocate(capacity: bytes.count + 1)
-    for i in 0..<bytes.count { buffer[i] = CChar(bitPattern: bytes[i]) }
+    for i in 0 ..< bytes.count {
+        buffer[i] = CChar(bitPattern: bytes[i])
+    }
     buffer[bytes.count] = 0
     clayStringBuffers.append(buffer)
     return buffer
 }
 
 public func ClayFreeStringBuffers() {
-    for buf in clayStringBuffers { buf.deallocate() }
+    for buf in clayStringBuffers {
+        buf.deallocate()
+    }
     clayStringBuffers.removeAll()
 }
 
