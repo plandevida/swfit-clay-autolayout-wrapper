@@ -70,7 +70,7 @@ public struct ClayViewBuilder {
 public final class ClayAppRuntime {
     nonisolated(unsafe) public static var current: ClayAppRuntime?
 
-    private var fontRegistry = ClayFontRegistry()
+    private var fontRegistry: ClayFontRegistry?
     private var stateValues: [String: Any] = [:]
     nonisolated(unsafe) private var _input: (() -> SDLInputState)?
     nonisolated(unsafe) private var _pointerOver: ((ClayID) -> Bool)?
@@ -90,18 +90,22 @@ public final class ClayAppRuntime {
             height: windowGroup.height
         )
 
+        // Use the window's font registry so IDs match the renderer
+        self.fontRegistry = win.fontRegistryRef
+
+        // Auto-register system fonts on the window's registry
+        try win.fontRegistryRef.register(name: "ClayFont-16", size: 16)
+        try win.fontRegistryRef.register(name: "ClayFont-24", size: 24)
+
         // Capture weak references for nonisolated access
         self._input = { [weak win] in win?.input ?? SDLInputState() }
         self._pointerOver = { [weak win] id in win?.pointerOver(id) ?? false }
 
-        try fontRegistry.register(name: "ClayFont-16", size: 16)
-        try fontRegistry.register(name: "ClayFont-24", size: 24)
-
         try win.run { [weak self] in
-            guard let self = self else { return }
+            guard let self = self, let registry = self.fontRegistry else { return }
             let currentScene = app.body
             if let wg = currentScene as? WindowGroup {
-                wg.configure(fontRegistry: self.fontRegistry)
+                wg.configure(fontRegistry: registry)
             }
         }
     }

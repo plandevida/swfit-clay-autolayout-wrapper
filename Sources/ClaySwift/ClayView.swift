@@ -37,7 +37,7 @@ public struct Text: ClayView {
             fontId: fontId,
             fontSize: font.size,
             textAlignment: textAlignment
-        ))
+        )).configure()
     }
 }
 

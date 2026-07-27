@@ -1,153 +1,72 @@
 import ClaySwift
 
 @main
-struct BasicUI {
-    static func main() throws {
-        let window = try ClayWindow(title: "ClaySwift Basic UI", width: 1200, height: 800)
+final class BasicUI: ClayApp {
+    @State private var clickCount = 0
+    let messages = ["Hello!", "Click me!", "Again!", "One more!", "Keep going!", "You did it!"]
 
-        let fontId = try window.registerFont(name: "Regular", size: 16)
-        _ = try window.registerFont(name: "Bold", size: 24)
+    required init() {}
 
-        var clickCount = 0
-        let messages = ["Hello!", "Click me!", "Again!", "One more!", "Keep going!", "You did it!"]
-        let buttonId = ClayID("click-button")
+    var body: some ClayScene {
+        WindowGroup("ClaySwift Basic UI", width: 1200, height: 800) {
+            HStack(spacing: 16) {
+                // Sidebar
+                VStack(spacing: 8) {
+                    Text("Menu")
+                        .font(.system(size: 24))
+                        .frame(maxWidth: .infinity, alignment: .init(x: .left, y: .top))
 
-        do {
-            try window.run {
-                ClayElement("Root",
-                            layout: ClayLayoutConfig(
-                                sizing: .grow(),
-                                padding: ClayPadding(16),
-                                childGap: 16
-                            )) {
-                    // Sidebar
-                    ClayElement("Sidebar",
-                                layout: ClayLayoutConfig(
-                                    sizing: ClaySizing(width: .fixed(250), height: .grow()),
-                                    padding: ClayPadding(12),
-                                    childGap: 8,
-                                    layoutDirection: .topToBottom
-                                ),
-                                backgroundColor: ClayColor(240, 240, 245),
-                                cornerRadius: ClayCornerRadius(8))
-                    {
-                        ClayText("Menu", config: ClayTextConfig(
-                            textColor: ClayColor(50, 50, 50),
-                            fontId: fontId,
-                            fontSize: 24
-                        ))
-
-                        for item in ["Home", "Settings", "About"] {
-                            ClayElement("nav-\(item)",
-                                        layout: ClayLayoutConfig(
-                                            sizing: .grow(),
-                                            padding: ClayPadding(horizontal: 12, vertical: 8)
-                                        ),
-                                        backgroundColor: ClayColor(220, 220, 230),
-                                        cornerRadius: ClayCornerRadius(6))
-                            {
-                                ClayText(item, config: ClayTextConfig(
-                                    textColor: ClayColor(80, 80, 80),
-                                    fontId: fontId,
-                                    fontSize: 16
-                                ))
-                            }
-                        }
+                    ForEach(["Home", "Settings", "About"], id: \.self) { item in
+                        Text(item)
+                            .font(.system(size: 16))
+                            .padding(.horizontal, 12)
+                            .padding(.vertical, 8)
+                            .frame(maxWidth: .infinity, alignment: .init(x: .left, y: .top))
+                            .background(ClayColor(220, 220, 230))
+                            .cornerRadius(6)
                     }
-
-                    // Main content
-                    ClayElement("Content",
-                                layout: ClayLayoutConfig(
-                                    sizing: .grow(),
-                                    padding: ClayPadding(24),
-                                    childGap: 16,
-                                    layoutDirection: .topToBottom
-                                ),
-                                backgroundColor: .white,
-                                cornerRadius: ClayCornerRadius(8))
-                    {
-                        ClayText("Welcome to ClaySwift", config: ClayTextConfig(
-                            textColor: ClayColor(30, 30, 30),
-                            fontId: fontId,
-                            fontSize: 32
-                        ))
-
-                        ClayText("A Swift wrapper for the Clay UI layout library, powered by SDL3.", config: ClayTextConfig(
-                            textColor: ClayColor(100, 100, 100),
-                            fontId: fontId,
-                            fontSize: 16
-                        ))
-
-                        // Click counter text field
-                        ClayElement("counter-field",
-                                    layout: ClayLayoutConfig(
-                                        sizing: ClaySizing(width: .fixed(200), height: .fixed(40)),
-                                        padding: ClayPadding(horizontal: 12, vertical: 8),
-                                        childAlignment: .center
-                                    ),
-                                    backgroundColor: ClayColor(250, 250, 255),
-                                    cornerRadius: ClayCornerRadius(6),
-                                    border: ClayBorderConfig(1, color: ClayColor(200, 200, 210), cornerRadius: ClayCornerRadius(6)))
-                        {
-                            ClayText("Clicked: \(clickCount) times", config: ClayTextConfig(
-                                textColor: ClayColor(40, 40, 40),
-                                fontId: fontId,
-                                fontSize: 16
-                            ))
-                        }
-
-                        // Click button
-                        ClayElement("click-button",
-                                    layout: ClayLayoutConfig(
-                                        sizing: ClaySizing(width: .fixed(200), height: .fixed(50)),
-                                        padding: ClayPadding(horizontal: 16, vertical: 12),
-                                        childAlignment: .center
-                                    ),
-                                    backgroundColor: ClayColor(50, 120, 220),
-                                    cornerRadius: ClayCornerRadius(8))
-                        {
-                            ClayText(messages[clickCount % messages.count], config: ClayTextConfig(
-                                textColor: .white,
-                                fontId: fontId,
-                                fontSize: 18
-                            ))
-                        }
-
-                        // Cards
-                        ClayElement("Cards",
-                                    layout: ClayLayoutConfig(
-                                        sizing: .grow(),
-                                        padding: ClayPadding(16),
-                                        childGap: 12
-                                    )) {
-                            for i in 1 ... 3 {
-                                ClayElement("card-\(i)",
-                                            layout: ClayLayoutConfig(
-                                                sizing: .grow(),
-                                                padding: ClayPadding(16)
-                                            ),
-                                            backgroundColor: ClayColor(245, 245, 250),
-                                            cornerRadius: ClayCornerRadius(8),
-                                            border: ClayBorderConfig(1, color: ClayColor(200, 200, 210), cornerRadius: ClayCornerRadius(8)))
-                                {
-                                    ClayText("Card \(i)", config: ClayTextConfig(
-                                        textColor: ClayColor(60, 60, 60),
-                                        fontId: fontId,
-                                        fontSize: 18
-                                    ))
-                                }
-                            }
-                        }
-                    }
-                }.configure()
-
-                // Detect button click
-                if window.input.mouseLeftReleased, window.pointerOver(buttonId) {
-                    clickCount += 1
                 }
+                .padding(12)
+                .frame(width: 250)
+                .background(ClayColor(240, 240, 245))
+                .cornerRadius(8)
+
+                // Main content
+                VStack(alignment: .init(x: .left, y: .top), spacing: 16) {
+                    Text("Welcome to ClaySwift")
+                        .font(.system(size: 32))
+
+                    Text("A Swift wrapper for the Clay UI layout library, powered by SDL3.")
+                        .font(.system(size: 16))
+                        .foregroundStyle(ClayColor(100, 100, 100))
+
+                    Text("Clicked: \(self.clickCount) times")
+                        .padding(.horizontal, 12)
+                        .padding(.vertical, 8)
+                        .frame(width: 200, height: 40, alignment: .init(x: .left, y: .center))
+                        .background(ClayColor(250, 250, 255))
+                        .cornerRadius(6)
+                        .border(1, color: ClayColor(200, 200, 210))
+
+                    Button(self.messages[self.clickCount % self.messages.count]) {
+                        self.clickCount += 1
+                    }
+                    .frame(width: 200, height: 50)
+
+                    HStack(spacing: 12) {
+                        ForEach(1 ... 3, id: \.self) { i in
+                            Text("Card \(i)")
+                                .frame(height: 60, maxWidth: .infinity, alignment: .init(x: .left, y: .top))
+                                .padding(16)
+                                .background(ClayColor(245, 245, 250))
+                                .cornerRadius(8)
+                                .border(1, color: ClayColor(200, 200, 210))
+                        }
+                    }
+                }
+                .padding(24)
             }
-        } catch {
-            print(error)
+            .padding(16)
         }
     }
 }
