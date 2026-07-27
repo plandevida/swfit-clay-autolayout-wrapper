@@ -21,7 +21,7 @@ public protocol ClayElementProtocol {
 
 // MARK: - Default Clay_ElementDeclaration
 
-private func clayDefaultDecl() -> Clay_ElementDeclaration {
+internal func clayDefaultDecl() -> Clay_ElementDeclaration {
     Clay_ElementDeclaration(
         layout: Clay_LayoutConfig(),
         backgroundColor: Clay_Color(),

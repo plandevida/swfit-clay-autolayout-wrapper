@@ -109,6 +109,20 @@ public final class ClayFontRegistry: @unchecked Sendable {
         }
     }
 
+    @discardableResult
+    public func registerOrFind(font: ClayFont) -> UInt16 {
+        let name = font.registerName
+        if let existingId = fontId(named: name) {
+            return existingId
+        }
+        switch font {
+        case .system(let size):
+            return try! register(name: name, size: Int32(size))
+        case .custom(_, let path, let size):
+            return try! register(name: name, path: path, size: Int32(size))
+        }
+    }
+
     public var count: Int {
         fonts.count
     }

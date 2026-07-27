@@ -15,23 +15,22 @@ struct BasicUI {
         do {
             try window.run {
                 ClayElement("Root",
-                    layout: ClayLayoutConfig(
-                        sizing: .grow(),
-                        padding: ClayPadding(16),
-                        childGap: 16
-                    )
-                ) {
+                            layout: ClayLayoutConfig(
+                                sizing: .grow(),
+                                padding: ClayPadding(16),
+                                childGap: 16
+                            )) {
                     // Sidebar
                     ClayElement("Sidebar",
-                        layout: ClayLayoutConfig(
-                            sizing: ClaySizing(width: .fixed(250), height: .grow()),
-                            padding: ClayPadding(12),
-                            childGap: 8,
-                            layoutDirection: .topToBottom
-                        ),
-                        backgroundColor: ClayColor(240, 240, 245),
-                        cornerRadius: ClayCornerRadius(8)
-                    ) {
+                                layout: ClayLayoutConfig(
+                                    sizing: ClaySizing(width: .fixed(250), height: .grow()),
+                                    padding: ClayPadding(12),
+                                    childGap: 8,
+                                    layoutDirection: .topToBottom
+                                ),
+                                backgroundColor: ClayColor(240, 240, 245),
+                                cornerRadius: ClayCornerRadius(8))
+                    {
                         ClayText("Menu", config: ClayTextConfig(
                             textColor: ClayColor(50, 50, 50),
                             fontId: fontId,
@@ -40,13 +39,13 @@ struct BasicUI {
 
                         for item in ["Home", "Settings", "About"] {
                             ClayElement("nav-\(item)",
-                                layout: ClayLayoutConfig(
-                                    sizing: .grow(),
-                                    padding: ClayPadding(horizontal: 12, vertical: 8)
-                                ),
-                                backgroundColor: ClayColor(220, 220, 230),
-                                cornerRadius: ClayCornerRadius(6)
-                            ) {
+                                        layout: ClayLayoutConfig(
+                                            sizing: .grow(),
+                                            padding: ClayPadding(horizontal: 12, vertical: 8)
+                                        ),
+                                        backgroundColor: ClayColor(220, 220, 230),
+                                        cornerRadius: ClayCornerRadius(6))
+                            {
                                 ClayText(item, config: ClayTextConfig(
                                     textColor: ClayColor(80, 80, 80),
                                     fontId: fontId,
@@ -58,15 +57,15 @@ struct BasicUI {
 
                     // Main content
                     ClayElement("Content",
-                        layout: ClayLayoutConfig(
-                            sizing: .grow(),
-                            padding: ClayPadding(24),
-                            childGap: 16,
-                            layoutDirection: .topToBottom
-                        ),
-                        backgroundColor: .white,
-                        cornerRadius: ClayCornerRadius(8)
-                    ) {
+                                layout: ClayLayoutConfig(
+                                    sizing: .grow(),
+                                    padding: ClayPadding(24),
+                                    childGap: 16,
+                                    layoutDirection: .topToBottom
+                                ),
+                                backgroundColor: .white,
+                                cornerRadius: ClayCornerRadius(8))
+                    {
                         ClayText("Welcome to ClaySwift", config: ClayTextConfig(
                             textColor: ClayColor(30, 30, 30),
                             fontId: fontId,
@@ -81,15 +80,15 @@ struct BasicUI {
 
                         // Click counter text field
                         ClayElement("counter-field",
-                            layout: ClayLayoutConfig(
-                                sizing: ClaySizing(width: .fixed(200), height: .fixed(40)),
-                                padding: ClayPadding(horizontal: 12, vertical: 8),
-                                childAlignment: .center
-                            ),
-                            backgroundColor: ClayColor(250, 250, 255),
-                            cornerRadius: ClayCornerRadius(6),
-                            border: ClayBorderConfig(1, color: ClayColor(200, 200, 210), cornerRadius: ClayCornerRadius(6))
-                        ) {
+                                    layout: ClayLayoutConfig(
+                                        sizing: ClaySizing(width: .fixed(200), height: .fixed(40)),
+                                        padding: ClayPadding(horizontal: 12, vertical: 8),
+                                        childAlignment: .center
+                                    ),
+                                    backgroundColor: ClayColor(250, 250, 255),
+                                    cornerRadius: ClayCornerRadius(6),
+                                    border: ClayBorderConfig(1, color: ClayColor(200, 200, 210), cornerRadius: ClayCornerRadius(6)))
+                        {
                             ClayText("Clicked: \(clickCount) times", config: ClayTextConfig(
                                 textColor: ClayColor(40, 40, 40),
                                 fontId: fontId,
@@ -99,14 +98,14 @@ struct BasicUI {
 
                         // Click button
                         ClayElement("click-button",
-                            layout: ClayLayoutConfig(
-                                sizing: ClaySizing(width: .fixed(200), height: .fixed(50)),
-                                padding: ClayPadding(horizontal: 16, vertical: 12),
-                                childAlignment: .center
-                            ),
-                            backgroundColor: ClayColor(50, 120, 220),
-                            cornerRadius: ClayCornerRadius(8)
-                        ) {
+                                    layout: ClayLayoutConfig(
+                                        sizing: ClaySizing(width: .fixed(200), height: .fixed(50)),
+                                        padding: ClayPadding(horizontal: 16, vertical: 12),
+                                        childAlignment: .center
+                                    ),
+                                    backgroundColor: ClayColor(50, 120, 220),
+                                    cornerRadius: ClayCornerRadius(8))
+                        {
                             ClayText(messages[clickCount % messages.count], config: ClayTextConfig(
                                 textColor: .white,
                                 fontId: fontId,
@@ -116,22 +115,21 @@ struct BasicUI {
 
                         // Cards
                         ClayElement("Cards",
-                            layout: ClayLayoutConfig(
-                                sizing: .grow(),
-                                padding: ClayPadding(16),
-                                childGap: 12
-                            )
-                        ) {
-                            for i in 1...3 {
-                                ClayElement("card-\(i)",
                                     layout: ClayLayoutConfig(
                                         sizing: .grow(),
-                                        padding: ClayPadding(16)
-                                    ),
-                                    backgroundColor: ClayColor(245, 245, 250),
-                                    cornerRadius: ClayCornerRadius(8),
-                                    border: ClayBorderConfig(1, color: ClayColor(200, 200, 210), cornerRadius: ClayCornerRadius(8))
-                                ) {
+                                        padding: ClayPadding(16),
+                                        childGap: 12
+                                    )) {
+                            for i in 1 ... 3 {
+                                ClayElement("card-\(i)",
+                                            layout: ClayLayoutConfig(
+                                                sizing: .grow(),
+                                                padding: ClayPadding(16)
+                                            ),
+                                            backgroundColor: ClayColor(245, 245, 250),
+                                            cornerRadius: ClayCornerRadius(8),
+                                            border: ClayBorderConfig(1, color: ClayColor(200, 200, 210), cornerRadius: ClayCornerRadius(8)))
+                                {
                                     ClayText("Card \(i)", config: ClayTextConfig(
                                         textColor: ClayColor(60, 60, 60),
                                         fontId: fontId,
@@ -144,7 +142,7 @@ struct BasicUI {
                 }.configure()
 
                 // Detect button click
-                if window.input.mouseLeftReleased && window.pointerOver(buttonId) {
+                if window.input.mouseLeftReleased, window.pointerOver(buttonId) {
                     clickCount += 1
                 }
             }

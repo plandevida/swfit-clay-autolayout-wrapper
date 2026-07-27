@@ -55,6 +55,11 @@ let package = Package(
             name: "BasicSwiftUI",
             path: "Examples/BasicSwiftUI"
         ),
+        .executableTarget(
+            name: "BasicClayUI",
+            dependencies: ["ClaySwift"],
+            path: "Examples/BasicClayUI"
+        ),
     ]
 )
 
