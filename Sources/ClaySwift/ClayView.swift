@@ -9,7 +9,7 @@ public protocol ClayView {
 
 // MARK: - ClayViewAdapter (bridges ClayView to ClayElementProtocol)
 
-internal struct ClayViewAdapter: ClayElementProtocol {
+struct ClayViewAdapter: ClayElementProtocol {
     let view: any ClayView
     let fontRegistry: ClayFontRegistry
 
@@ -47,29 +47,31 @@ public struct Button: ClayView {
     let label: String
     let action: () -> Void
     let id: String
-    var backgroundColor: ClayColor = ClayColor(50, 120, 220)
-    var cornerRadius: ClayCornerRadius = ClayCornerRadius(8)
+    var backgroundColor: ClayColor = .init(50, 120, 220)
+    var cornerRadius: ClayCornerRadius = .init(8)
     var labelFont: ClayFont = .system(size: 16)
     var labelColor: ClayColor = .white
-    var sizing: ClaySizing = ClaySizing(width: .fixed(200), height: .fixed(50))
+    var sizing: ClaySizing = .init(width: .fixed(200), height: .fixed(50))
     var childAlignment: ClayChildAlignment = .center
 
     public init(_ label: String, action: @escaping () -> Void) {
         self.label = label
         self.action = action
-        self.id = "button_\(UUID().uuidString)"
+        // Must be stable across frames so pointerOver() matches the element ID
+        // stored in pointerOverIds from the event handling pass.
+        id = "button_\(label.hashValue)"
     }
 
     public func configure(fontRegistry: ClayFontRegistry) {
         let elementId = ClayID(id)
         ClayElement(id,
-            layout: ClayLayoutConfig(
-                sizing: sizing,
-                childAlignment: childAlignment
-            ),
-            backgroundColor: backgroundColor,
-            cornerRadius: cornerRadius
-        ) {
+                    layout: ClayLayoutConfig(
+                        sizing: sizing,
+                        childAlignment: childAlignment
+                    ),
+                    backgroundColor: backgroundColor,
+                    cornerRadius: cornerRadius)
+        {
             ClayText(label, config: ClayTextConfig(
                 textColor: labelColor,
                 fontId: fontRegistry.registerOrFind(font: labelFont),
@@ -78,7 +80,8 @@ public struct Button: ClayView {
         }.configure()
 
         if ClayAppRuntime.current?.input.mouseLeftReleased == true,
-           ClayAppRuntime.current?.pointerOver(elementId) == true {
+           ClayAppRuntime.current?.pointerOver(elementId) == true
+        {
             action()
         }
     }
@@ -98,18 +101,17 @@ public struct VStack: ClayView {
     ) {
         self.spacing = spacing
         self.alignment = alignment
-        self.children = content()
+        children = content()
     }
 
     public func configure(fontRegistry: ClayFontRegistry) {
         ClayElement(nil,
-            layout: ClayLayoutConfig(
-                sizing: .grow(),
-                childGap: spacing,
-                childAlignment: alignment,
-                layoutDirection: .topToBottom
-            )
-        ) {
+                    layout: ClayLayoutConfig(
+                        sizing: .grow(),
+                        childGap: spacing,
+                        childAlignment: alignment,
+                        layoutDirection: .topToBottom
+                    )) {
             for child in children {
                 ClayViewAdapter(view: child, fontRegistry: fontRegistry)
             }
@@ -131,18 +133,17 @@ public struct HStack: ClayView {
     ) {
         self.spacing = spacing
         self.alignment = alignment
-        self.children = content()
+        children = content()
     }
 
     public func configure(fontRegistry: ClayFontRegistry) {
         ClayElement(nil,
-            layout: ClayLayoutConfig(
-                sizing: .grow(),
-                childGap: spacing,
-                childAlignment: alignment,
-                layoutDirection: .leftToRight
-            )
-        ) {
+                    layout: ClayLayoutConfig(
+                        sizing: .grow(),
+                        childGap: spacing,
+                        childAlignment: alignment,
+                        layoutDirection: .leftToRight
+                    )) {
             for child in children {
                 ClayViewAdapter(view: child, fontRegistry: fontRegistry)
             }
@@ -156,11 +157,11 @@ public struct ForEach<Content: ClayView>: ClayView {
     let children: [Content]
 
     public init(_ data: Range<Int>, @ClayViewBuilder content: (Int) -> Content) {
-        self.children = data.map { content($0) }
+        children = data.map { content($0) }
     }
 
-    public init<C: Collection, ID: Hashable>(_ data: C, id: KeyPath<C.Element, ID>, content: @escaping (C.Element) -> Content) {
-        self.children = data.map { content($0) }
+    public init<C: Collection, ID: Hashable>(_ data: C, id _: KeyPath<C.Element, ID>, content: @escaping (C.Element, Int) -> Content) {
+        children = data.enumerated().map { content($0.element, $0.offset) }
     }
 
     public func configure(fontRegistry: ClayFontRegistry) {
@@ -178,9 +179,9 @@ public enum _ConditionalContent<TrueContent: ClayView, FalseContent: ClayView>: 
 
     public func configure(fontRegistry: ClayFontRegistry) {
         switch self {
-        case .trueContent(let content):
+        case let .trueContent(content):
             content.configure(fontRegistry: fontRegistry)
-        case .falseContent(let content):
+        case let .falseContent(content):
             content.configure(fontRegistry: fontRegistry)
         }
     }
@@ -191,5 +192,77 @@ public enum _ConditionalContent<TrueContent: ClayView, FalseContent: ClayView>: 
 public struct EmptyView: ClayView {
     public init() {}
 
-    public func configure(fontRegistry: ClayFontRegistry) {}
+    public func configure(fontRegistry _: ClayFontRegistry) {}
+}
+
+// MARK: - ScrollView
+
+public struct ScrollView: ClayView {
+    let vertical: Bool
+    let horizontal: Bool
+    let children: [any ClayView]
+
+    public init(
+        _ axes: Axis.Set = .vertical,
+        @ClayViewBuilder content: () -> [any ClayView]
+    ) {
+        vertical = axes.contains(.vertical)
+        horizontal = axes.contains(.horizontal)
+        children = content()
+    }
+
+    public func configure(fontRegistry: ClayFontRegistry) {
+        let scrollId = Clay__HashString(ClayMakeString("__scroll_\(_nextStableElementId())"), 0)
+
+        Clay__OpenElementWithId(scrollId)
+
+        // Must call Clay_GetScrollOffset() while the element is open to get
+        // the scroll container's current position from internal persistent state.
+        let scrollOffset = Clay_GetScrollOffset()
+
+        var decl = clayDefaultDecl()
+        decl.layout = ClayLayoutConfig(
+            sizing: .grow(),
+            childGap: 0,
+            layoutDirection: vertical ? .topToBottom : .leftToRight
+        ).cLayoutConfig
+        decl.clip = ClayClipConfig(
+            horizontal: horizontal,
+            vertical: vertical,
+            childOffset: scrollOffset
+        ).cClipConfig
+        Clay__ConfigureOpenElementPtr(&decl)
+        for child in children {
+            ClayViewAdapter(view: child, fontRegistry: fontRegistry).configure()
+        }
+        Clay__CloseElement()
+    }
+}
+
+// MARK: - Axis
+
+public struct Axis: OptionSet, Sendable, Hashable {
+    public let rawValue: UInt8
+
+    public init(rawValue: UInt8) {
+        self.rawValue = rawValue
+    }
+
+    public static let horizontal = Axis(rawValue: 1 << 0)
+    public static let vertical = Axis(rawValue: 1 << 1)
+    public static let all: Axis = [.horizontal, .vertical]
+}
+
+public extension Axis {
+    struct Set: OptionSet, Sendable, Hashable {
+        public let rawValue: UInt8
+
+        public init(rawValue: UInt8) {
+            self.rawValue = rawValue
+        }
+
+        public static let horizontal = Set(rawValue: 1 << 0)
+        public static let vertical = Set(rawValue: 1 << 1)
+        public static let all: Set = [.horizontal, .vertical]
+    }
 }

@@ -27,7 +27,7 @@ public struct ModifiedContent<Content: ClayView, Modifier: ViewModifier>: ClayVi
 
 private func defaultClayLayout() -> Clay_LayoutConfig {
     Clay_LayoutConfig(
-        sizing: ClaySizing.grow().cSizing,
+            sizing: ClaySizing(.fit).cSizing,
         padding: Clay_Padding(left: 0, right: 0, top: 0, bottom: 0),
         childGap: 0,
         childAlignment: Clay_ChildAlignment(
@@ -51,7 +51,7 @@ public struct PaddingModifier: ViewModifier {
         let elementId = Clay__HashString(ClayMakeString("__padding_\(_nextStableElementId())"), 0)
         var decl = clayDefaultDecl()
         decl.layout = ClayLayoutConfig(
-            sizing: .grow(),
+            sizing: .init(.fit),
             padding: padding,
             childGap: 0,
             childAlignment: .init(x: .left, y: .top),
@@ -127,8 +127,8 @@ public struct FrameModifier: ViewModifier {
     public func modify<V: ClayView>(_ content: V, fontRegistry: ClayFontRegistry) {
         let elementId = Clay__HashString(ClayMakeString("__frame_\(_nextStableElementId())"), 0)
 
-        var widthAxis: ClaySizingAxis = .grow()
-        var heightAxis: ClaySizingAxis = .grow()
+        var widthAxis: ClaySizingAxis = .fit
+        var heightAxis: ClaySizingAxis = .fit
 
         if let w = width {
             widthAxis = .fixed(w)

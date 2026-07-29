@@ -19,7 +19,12 @@ public final class ClayContext {
         let dims = Clay_Dimensions(width: width, height: height)
         let handler = errorHandler ?? Clay_ErrorHandler(
             errorHandlerFunction: { error in
-                print("[Clay Error] \(error.errorText)")
+                let text = error.errorText
+                if let chars = text.chars, text.length > 0 {
+                    let ptr = UnsafeRawPointer(chars)
+                    let message = String(bytesNoCopy: UnsafeMutableRawPointer(mutating: ptr), length: Int(text.length), encoding: .utf8, freeWhenDone: false) ?? "<unknown>"
+                    print("[Clay Error] \(message)")
+                }
             },
             userData: nil
         )

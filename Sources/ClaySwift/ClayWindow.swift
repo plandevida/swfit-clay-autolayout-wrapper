@@ -203,11 +203,6 @@ public final class ClayWindow {
             case UInt32(SDL_EVENT_MOUSE_WHEEL.rawValue):
                 input.scrollX = event.wheel.x
                 input.scrollY = event.wheel.y
-                clayContext?.updateScrollContainers(
-                    enableDragScrolling: true,
-                    scrollDelta: ClayVector2(x: event.wheel.x, y: event.wheel.y),
-                    deltaTime: currentDeltaTime
-                )
 
             case UInt32(SDL_EVENT_KEY_DOWN.rawValue):
                 let keycode = event.key.key
@@ -231,6 +226,12 @@ public final class ClayWindow {
         guard let ctx = clayContext, let renderer = renderer else { return }
 
         SDL_RenderClear(renderer)
+
+        clayContext?.updateScrollContainers(
+            enableDragScrolling: true,
+            scrollDelta: ClayVector2(x: input.scrollX, y: input.scrollY),
+            deltaTime: currentDeltaTime
+        )
 
         ctx.beginLayout()
         layout()
