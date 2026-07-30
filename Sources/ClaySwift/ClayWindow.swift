@@ -233,6 +233,7 @@ public final class ClayWindow {
             deltaTime: currentDeltaTime
         )
 
+        _resetElementCounter()
         ctx.beginLayout()
         layout()
         var commands = ctx.endLayout(deltaTime: currentDeltaTime)

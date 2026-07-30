@@ -13,6 +13,12 @@ internal func _nextStableElementId() -> UInt32 {
     }
 }
 
+internal func _resetElementCounter() {
+    _elementCounterQueue.sync {
+        _globalElementCounter = 0
+    }
+}
+
 // MARK: - ClayElementProtocol
 
 public protocol ClayElementProtocol {
