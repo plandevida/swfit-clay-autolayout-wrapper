@@ -21,8 +21,8 @@ public final class ClayContext {
             errorHandlerFunction: { error in
                 let text = error.errorText
                 if let chars = text.chars, text.length > 0 {
-                    let ptr = UnsafeRawPointer(chars)
-                    let message = String(bytesNoCopy: UnsafeMutableRawPointer(mutating: ptr), length: Int(text.length), encoding: .utf8, freeWhenDone: false) ?? "<unknown>"
+                    let buffer = UnsafeRawBufferPointer(start: chars, count: Int(text.length))
+                    let message = String(decoding: buffer, as: UTF8.self)
                     print("[Clay Error] \(message)")
                 }
             },

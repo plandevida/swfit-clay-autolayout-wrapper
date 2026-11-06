@@ -1,9 +1,13 @@
 import SwiftUI
 
+final class CounterModel: ObservableObject {
+    @Published var clickCount = 0
+}
+
 @main
 struct SwiftUIApp: App {
     @NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
-    @State private var clickCount = 0
+    @StateObject private var model = CounterModel()
     let messages = ["Hello!", "Click me!", "Again!", "One more!", "Keep going!", "You did it!"]
 
     // init() {
@@ -41,7 +45,7 @@ struct SwiftUIApp: App {
                         .font(.system(size: 16))
                         .foregroundColor(.gray)
 
-                    Text("Clicked: \(clickCount) times")
+                    Text("Clicked: \(model.clickCount) times")
                         .padding(.horizontal, 12)
                         .padding(.vertical, 8)
                         .frame(width: 200, height: 40, alignment: .leading)
@@ -49,8 +53,8 @@ struct SwiftUIApp: App {
                         .cornerRadius(6)
                         .overlay(RoundedRectangle(cornerRadius: 6).stroke(Color(white: 0.82)))
 
-                    Button(messages[clickCount % messages.count]) {
-                        clickCount += 1
+                    Button(messages[model.clickCount % messages.count]) {
+                        model.clickCount += 1
                     }
                     .buttonStyle(.borderedProminent)
                     .frame(width: 200, height: 50)
@@ -73,6 +77,7 @@ struct SwiftUIApp: App {
     }
 }
 
+@MainActor
 class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationWillFinishLaunching(_: Notification) {
         print("[DEBUG] applicationWillFinishLaunching called")

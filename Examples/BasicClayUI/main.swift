@@ -16,7 +16,7 @@ final class BasicClayUI: ClayApp {
                         .font(.system(size: 24))
                         .frame(maxWidth: .infinity, alignment: .init(x: .left, y: .top))
 
-                    ForEach(["Home", "Settings", "About"], id: \.self) { item in
+                    ForEach(["Home", "Settings", "About"], id: \.self) { item, _ in
                         Text(item)
                             .font(.system(size: 16))
                             .padding(.horizontal, 12)
@@ -54,7 +54,7 @@ final class BasicClayUI: ClayApp {
                     .frame(width: 200, height: 50)
 
                     HStack(spacing: 12) {
-                        ForEach(1 ... 3, id: \.self) { i in
+                        ForEach(1 ... 3, id: \.self) { i, _ in
                             Text("Card \(i)")
                                 .frame(height: 60, maxWidth: .infinity, alignment: .init(x: .left, y: .top))
                                 .padding(16)
